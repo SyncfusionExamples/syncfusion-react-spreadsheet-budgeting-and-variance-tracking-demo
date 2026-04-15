@@ -1,29 +1,145 @@
-export const budgetSheet = [
-    { "Category": "Marketing Spend", "Jan": 5000, "Feb": 5000, "Mar": 6000, "Apr": 5500, "May": 5500, "Jun": 6000, "Jul": 6500, "Aug": 6500, "Sep": 5500, "Oct": 5000, "Nov": 7000, "Dec": 8000 },
-    { "Category": "Digital Ads", "Jan": 3000, "Feb": 3000, "Mar": 3500, "Apr": 3500, "May": 3500, "Jun": 4000, "Jul": 4000, "Aug": 4000, "Sep": 3500, "Oct": 3000, "Nov": 4500, "Dec": 5000 },
-    { "Category": "Events", "Jan": 2000, "Feb": 2000, "Mar": 2500, "Apr": 2000, "May": 2000, "Jun": 2000, "Jul": 2500, "Aug": 2500, "Sep": 2000, "Oct": 2000, "Nov": 2500, "Dec": 3000 },
-    { "Category": "Salaries", "Jan": 250000, "Feb": 250000, "Mar": 250000, "Apr": 250000, "May": 250000, "Jun": 250000, "Jul": 250000, "Aug": 250000, "Sep": 275000, "Oct": 275000, "Nov": 275000, "Dec": 275000 },
-    { "Category": "Hiring Costs", "Jan": 5000, "Feb": 5000, "Mar": 8000, "Apr": 5000, "May": 5000, "Jun": 5000, "Jul": 8000, "Aug": 5000, "Sep": 5000, "Oct": 5000, "Nov": 5000, "Dec": 5000 },
-    { "Category": "Training Costs", "Jan": 3000, "Feb": 3000, "Mar": 3000, "Apr": 3000, "May": 3000, "Jun": 3000, "Jul": 5000, "Aug": 3000, "Sep": 3000, "Oct": 3000, "Nov": 3000, "Dec": 5000 },
-    { "Category": "Software Licenses", "Jan": 12000, "Feb": 12000, "Mar": 12000, "Apr": 12000, "May": 12000, "Jun": 12000, "Jul": 12000, "Aug": 12000, "Sep": 12000, "Oct": 12000, "Nov": 12000, "Dec": 12000 },
-    { "Category": "Cloud Hosting", "Jan": 8000, "Feb": 8000, "Mar": 8000, "Apr": 8500, "May": 8500, "Jun": 9000, "Jul": 9000, "Aug": 9000, "Sep": 9000, "Oct": 9000, "Nov": 9000, "Dec": 9000 },
-    { "Category": "Rent", "Jan": 15000, "Feb": 15000, "Mar": 15000, "Apr": 15000, "May": 15000, "Jun": 15000, "Jul": 15000, "Aug": 15000, "Sep": 15000, "Oct": 15000, "Nov": 15000, "Dec": 15000 },
-    { "Category": "Utilities", "Jan": 3500, "Feb": 3500, "Mar": 3500, "Apr": 3000, "May": 3000, "Jun": 3500, "Jul": 4000, "Aug": 4000, "Sep": 3500, "Oct": 3000, "Nov": 3500, "Dec": 4000 },
-    { "Category": "Insurance", "Jan": 5000, "Feb": 5000, "Mar": 5000, "Apr": 5000, "May": 5000, "Jun": 5000, "Jul": 5000, "Aug": 5000, "Sep": 5000, "Oct": 5000, "Nov": 5000, "Dec": 5000 },
-    { "Category": "Office Supplies", "Jan": 2000, "Feb": 2000, "Mar": 2000, "Apr": 2000, "May": 2000, "Jun": 2000, "Jul": 2500, "Aug": 2000, "Sep": 2000, "Oct": 2000, "Nov": 2500, "Dec": 3000 }
-];
+export const budgetSheets = {
+    '2021': [
+        { "Category": "Marketing Spend", "Jan": 4200, "Feb": 4300, "Mar": 4500, "Apr": 4400, "May": 4400, "Jun": 4600, "Jul": 4800, "Aug": 4700, "Sep": 4300, "Oct": 4200, "Nov": 5200, "Dec": 6000 },
+        { "Category": "Digital Ads", "Jan": 2500, "Feb": 2500, "Mar": 3000, "Apr": 3000, "May": 3000, "Jun": 3300, "Jul": 3400, "Aug": 3400, "Sep": 3000, "Oct": 2700, "Nov": 3800, "Dec": 4200 },
+        { "Category": "Events", "Jan": 1600, "Feb": 1600, "Mar": 1800, "Apr": 1700, "May": 1700, "Jun": 1700, "Jul": 2000, "Aug": 1900, "Sep": 1700, "Oct": 1600, "Nov": 1900, "Dec": 2200 },
+        { "Category": "Salaries", "Jan": 22000, "Feb": 22000, "Mar": 22000, "Apr": 22000, "May": 22000, "Jun": 22000, "Jul": 22000, "Aug": 22000, "Sep": 23500, "Oct": 23500, "Nov": 23500, "Dec": 23500 },
+        { "Category": "Hiring Costs", "Jan": 4200, "Feb": 4200, "Mar": 6500, "Apr": 4200, "May": 4200, "Jun": 4200, "Jul": 6500, "Aug": 4200, "Sep": 4200, "Oct": 4200, "Nov": 4200, "Dec": 4200 },
+        { "Category": "Training Costs", "Jan": 2500, "Feb": 2500, "Mar": 2600, "Apr": 2500, "May": 2500, "Jun": 2500, "Jul": 3800, "Aug": 2500, "Sep": 2500, "Oct": 2500, "Nov": 2500, "Dec": 3800 },
+        { "Category": "Software Licenses", "Jan": 10000, "Feb": 10000, "Mar": 10000, "Apr": 10000, "May": 10000, "Jun": 10000, "Jul": 10000, "Aug": 10000, "Sep": 10000, "Oct": 10000, "Nov": 10000, "Dec": 10000 },
+        { "Category": "Cloud Hosting", "Jan": 7000, "Feb": 7000, "Mar": 7000, "Apr": 7300, "May": 7300, "Jun": 7600, "Jul": 7600, "Aug": 7600, "Sep": 7600, "Oct": 7600, "Nov": 7600, "Dec": 7600 },
+        { "Category": "Rent", "Jan": 14000, "Feb": 14000, "Mar": 14000, "Apr": 14000, "May": 14000, "Jun": 14000, "Jul": 14000, "Aug": 14000, "Sep": 14000, "Oct": 14000, "Nov": 14000, "Dec": 14000 },
+        { "Category": "Utilities", "Jan": 3000, "Feb": 3000, "Mar": 3000, "Apr": 2600, "May": 2600, "Jun": 3000, "Jul": 3400, "Aug": 3400, "Sep": 3000, "Oct": 2600, "Nov": 3000, "Dec": 3400 },
+        { "Category": "Insurance", "Jan": 4600, "Feb": 4600, "Mar": 4600, "Apr": 4600, "May": 4600, "Jun": 4600, "Jul": 4600, "Aug": 4600, "Sep": 4600, "Oct": 4600, "Nov": 4600, "Dec": 4600 },
+        { "Category": "Office Supplies", "Jan": 1700, "Feb": 1700, "Mar": 1700, "Apr": 1700, "May": 1700, "Jun": 1700, "Jul": 2000, "Aug": 1700, "Sep": 1700, "Oct": 1700, "Nov": 2000, "Dec": 2400 }
+    ],
+    '2022': [
+        { "Category": "Marketing Spend", "Jan": 4700, "Feb": 4700, "Mar": 5200, "Apr": 5000, "May": 5000, "Jun": 5200, "Jul": 5400, "Aug": 5400, "Sep": 5000, "Oct": 4700, "Nov": 5800, "Dec": 6600 },
+        { "Category": "Digital Ads", "Jan": 2800, "Feb": 2800, "Mar": 3200, "Apr": 3200, "May": 3200, "Jun": 3500, "Jul": 3500, "Aug": 3500, "Sep": 3200, "Oct": 2900, "Nov": 4000, "Dec": 4400 },
+        { "Category": "Events", "Jan": 1800, "Feb": 1800, "Mar": 2100, "Apr": 1900, "May": 1900, "Jun": 1900, "Jul": 2200, "Aug": 2100, "Sep": 1900, "Oct": 1800, "Nov": 2100, "Dec": 2400 },
+        { "Category": "Salaries", "Jan": 23000, "Feb": 23000, "Mar": 23000, "Apr": 23000, "May": 23000, "Jun": 23000, "Jul": 23000, "Aug": 23000, "Sep": 24500, "Oct": 24500, "Nov": 24500, "Dec": 24500 },
+        { "Category": "Hiring Costs", "Jan": 4600, "Feb": 4600, "Mar": 7200, "Apr": 4600, "May": 4600, "Jun": 4600, "Jul": 7200, "Aug": 4600, "Sep": 4600, "Oct": 4600, "Nov": 4600, "Dec": 4600 },
+        { "Category": "Training Costs", "Jan": 2800, "Feb": 2800, "Mar": 2900, "Apr": 2800, "May": 2800, "Jun": 2800, "Jul": 4200, "Aug": 2800, "Sep": 2800, "Oct": 2800, "Nov": 2800, "Dec": 4200 },
+        { "Category": "Software Licenses", "Jan": 10800, "Feb": 10800, "Mar": 10800, "Apr": 10800, "May": 10800, "Jun": 10800, "Jul": 10800, "Aug": 10800, "Sep": 10800, "Oct": 10800, "Nov": 10800, "Dec": 10800 },
+        { "Category": "Cloud Hosting", "Jan": 7400, "Feb": 7400, "Mar": 7400, "Apr": 7700, "May": 7700, "Jun": 8000, "Jul": 8000, "Aug": 8000, "Sep": 8000, "Oct": 8000, "Nov": 8000, "Dec": 8000 },
+        { "Category": "Rent", "Jan": 14500, "Feb": 14500, "Mar": 14500, "Apr": 14500, "May": 14500, "Jun": 14500, "Jul": 14500, "Aug": 14500, "Sep": 14500, "Oct": 14500, "Nov": 14500, "Dec": 14500 },
+        { "Category": "Utilities", "Jan": 3200, "Feb": 3200, "Mar": 3200, "Apr": 2800, "May": 2800, "Jun": 3200, "Jul": 3600, "Aug": 3600, "Sep": 3200, "Oct": 2800, "Nov": 3200, "Dec": 3600 },
+        { "Category": "Insurance", "Jan": 4800, "Feb": 4800, "Mar": 4800, "Apr": 4800, "May": 4800, "Jun": 4800, "Jul": 4800, "Aug": 4800, "Sep": 4800, "Oct": 4800, "Nov": 4800, "Dec": 4800 },
+        { "Category": "Office Supplies", "Jan": 1850, "Feb": 1850, "Mar": 1850, "Apr": 1850, "May": 1850, "Jun": 1850, "Jul": 2150, "Aug": 1850, "Sep": 1850, "Oct": 1850, "Nov": 2150, "Dec": 2500 }
+    ],
+    '2023': [
+        { "Category": "Marketing Spend", "Jan": 5100, "Feb": 5100, "Mar": 5700, "Apr": 5400, "May": 5400, "Jun": 5700, "Jul": 6000, "Aug": 5900, "Sep": 5400, "Oct": 5100, "Nov": 6300, "Dec": 7100 },
+        { "Category": "Digital Ads", "Jan": 3000, "Feb": 3000, "Mar": 3400, "Apr": 3400, "May": 3400, "Jun": 3700, "Jul": 3800, "Aug": 3800, "Sep": 3500, "Oct": 3200, "Nov": 4400, "Dec": 4800 },
+        { "Category": "Events", "Jan": 2000, "Feb": 2000, "Mar": 2400, "Apr": 2100, "May": 2101, "Jun": 2100, "Jul": 2500, "Aug": 2400, "Sep": 2100, "Oct": 2000, "Nov": 2400, "Dec": 2700 },
+        { "Category": "Salaries", "Jan": 24000, "Feb": 24000, "Mar": 24000, "Apr": 24000, "May": 24000, "Jun": 24000, "Jul": 24000, "Aug": 24000, "Sep": 26000, "Oct": 26000, "Nov": 26000, "Dec": 26000 },
+        { "Category": "Hiring Costs", "Jan": 4800, "Feb": 4800, "Mar": 7600, "Apr": 4800, "May": 4800, "Jun": 4800, "Jul": 7600, "Aug": 4800, "Sep": 4800, "Oct": 4800, "Nov": 4800, "Dec": 4800 },
+        { "Category": "Training Costs", "Jan": 3000, "Feb": 3000, "Mar": 3100, "Apr": 3000, "May": 3000, "Jun": 3000, "Jul": 4800, "Aug": 3000, "Sep": 3000, "Oct": 3000, "Nov": 3000, "Dec": 4800 },
+        { "Category": "Software Licenses", "Jan": 11500, "Feb": 11500, "Mar": 11500, "Apr": 11500, "May": 11500, "Jun": 11500, "Jul": 11500, "Aug": 11500, "Sep": 11500, "Oct": 11500, "Nov": 11500, "Dec": 11500 },
+        { "Category": "Cloud Hosting", "Jan": 7800, "Feb": 7800, "Mar": 7800, "Apr": 8100, "May": 8100, "Jun": 8400, "Jul": 8400, "Aug": 8400, "Sep": 8400, "Oct": 8400, "Nov": 8400, "Dec": 8400 },
+        { "Category": "Rent", "Jan": 14750, "Feb": 14750, "Mar": 14750, "Apr": 14750, "May": 14750, "Jun": 14750, "Jul": 14750, "Aug": 14750, "Sep": 14750, "Oct": 14750, "Nov": 14750, "Dec": 14750 },
+        { "Category": "Utilities", "Jan": 3400, "Feb": 3400, "Mar": 3400, "Apr": 3000, "May": 3000, "Jun": 3400, "Jul": 3800, "Aug": 3800, "Sep": 3400, "Oct": 3000, "Nov": 3400, "Dec": 3800 },
+        { "Category": "Insurance", "Jan": 4900, "Feb": 4900, "Mar": 4900, "Apr": 4900, "May": 4900, "Jun": 4900, "Jul": 4900, "Aug": 4900, "Sep": 4900, "Oct": 4900, "Nov": 4900, "Dec": 4900 },
+        { "Category": "Office Supplies", "Jan": 1950, "Feb": 1950, "Mar": 1950, "Apr": 1950, "May": 1950, "Jun": 1950, "Jul": 2300, "Aug": 1950, "Sep": 1950, "Oct": 1950, "Nov": 2300, "Dec": 2700 }
+    ],
+    '2024': [
+        { "Category": "Marketing Spend", "Jan": 5000, "Feb": 5000, "Mar": 6000, "Apr": 5500, "May": 5500, "Jun": 6000, "Jul": 6500, "Aug": 6500, "Sep": 5500, "Oct": 5000, "Nov": 7000, "Dec": 8000 },
+        { "Category": "Digital Ads", "Jan": 3000, "Feb": 3000, "Mar": 3500, "Apr": 3500, "May": 3500, "Jun": 4000, "Jul": 4000, "Aug": 4000, "Sep": 3500, "Oct": 3000, "Nov": 4500, "Dec": 5000 },
+        { "Category": "Events", "Jan": 2000, "Feb": 2000, "Mar": 2500, "Apr": 2000, "May": 2000, "Jun": 2000, "Jul": 2500, "Aug": 2500, "Sep": 2000, "Oct": 2000, "Nov": 2500, "Dec": 3000 },
+        { "Category": "Salaries", "Jan": 25000, "Feb": 25000, "Mar": 25000, "Apr": 25000, "May": 25000, "Jun": 25000, "Jul": 25000, "Aug": 25000, "Sep": 27500, "Oct": 27500, "Nov": 27500, "Dec": 27500 },
+        { "Category": "Hiring Costs", "Jan": 5000, "Feb": 5000, "Mar": 8000, "Apr": 5000, "May": 5000, "Jun": 5000, "Jul": 8000, "Aug": 5000, "Sep": 5000, "Oct": 5000, "Nov": 5000, "Dec": 5000 },
+        { "Category": "Training Costs", "Jan": 3000, "Feb": 3000, "Mar": 3000, "Apr": 3000, "May": 3000, "Jun": 3000, "Jul": 5000, "Aug": 3000, "Sep": 3000, "Oct": 3000, "Nov": 3000, "Dec": 5000 },
+        { "Category": "Software Licenses", "Jan": 12000, "Feb": 12000, "Mar": 12000, "Apr": 12000, "May": 12000, "Jun": 12000, "Jul": 12000, "Aug": 12000, "Sep": 12000, "Oct": 12000, "Nov": 12000, "Dec": 12000 },
+        { "Category": "Cloud Hosting", "Jan": 8000, "Feb": 8000, "Mar": 8000, "Apr": 8500, "May": 8500, "Jun": 9000, "Jul": 9000, "Aug": 9000, "Sep": 9000, "Oct": 9000, "Nov": 9000, "Dec": 9000 },
+        { "Category": "Rent", "Jan": 15000, "Feb": 15000, "Mar": 15000, "Apr": 15000, "May": 15000, "Jun": 15000, "Jul": 15000, "Aug": 15000, "Sep": 15000, "Oct": 15000, "Nov": 15000, "Dec": 15000 },
+        { "Category": "Utilities", "Jan": 3500, "Feb": 3500, "Mar": 3500, "Apr": 3000, "May": 3000, "Jun": 3500, "Jul": 4000, "Aug": 4000, "Sep": 3500, "Oct": 3000, "Nov": 3500, "Dec": 4000 },
+        { "Category": "Insurance", "Jan": 5000, "Feb": 5000, "Mar": 5000, "Apr": 5000, "May": 5000, "Jun": 5000, "Jul": 5000, "Aug": 5000, "Sep": 5000, "Oct": 5000, "Nov": 5000, "Dec": 5000 },
+        { "Category": "Office Supplies", "Jan": 2000, "Feb": 2000, "Mar": 2000, "Apr": 2000, "May": 2000, "Jun": 2000, "Jul": 2500, "Aug": 2000, "Sep": 2000, "Oct": 2000, "Nov": 2500, "Dec": 3000 }
+    ],
+    '2025': [
+        { "Category": "Marketing Spend", "Jan": 5400, "Feb": 5400, "Mar": 6600, "Apr": 6000, "May": 6000, "Jun": 6600, "Jul": 7200, "Aug": 7100, "Sep": 6000, "Oct": 5400, "Nov": 8200, "Dec": 9200 },
+        { "Category": "Digital Ads", "Jan": 3400, "Feb": 3400, "Mar": 3900, "Apr": 3900, "May": 3900, "Jun": 4500, "Jul": 4500, "Aug": 4500, "Sep": 3900, "Oct": 3400, "Nov": 5200, "Dec": 5600 },
+        { "Category": "Events", "Jan": 2200, "Feb": 2200, "Mar": 2800, "Apr": 2300, "May": 2300, "Jun": 2300, "Jul": 3000, "Aug": 2800, "Sep": 2300, "Oct": 2200, "Nov": 3000, "Dec": 3500 },
+        { "Category": "Salaries", "Jan": 26000, "Feb": 26000, "Mar": 26000, "Apr": 26000, "May": 26000, "Jun": 26000, "Jul": 26000, "Aug": 26000, "Sep": 28500, "Oct": 28500, "Nov": 28500, "Dec": 28500 },
+        { "Category": "Hiring Costs", "Jan": 5400, "Feb": 5400, "Mar": 8800, "Apr": 5400, "May": 5400, "Jun": 5400, "Jul": 8800, "Aug": 5400, "Sep": 5400, "Oct": 5400, "Nov": 5400, "Dec": 5400 },
+        { "Category": "Training Costs", "Jan": 3200, "Feb": 3200, "Mar": 3200, "Apr": 3200, "May": 3200, "Jun": 3200, "Jul": 5600, "Aug": 3200, "Sep": 3200, "Oct": 3200, "Nov": 3200, "Dec": 5600 },
+        { "Category": "Software Licenses", "Jan": 12500, "Feb": 12500, "Mar": 12500, "Apr": 12500, "May": 12500, "Jun": 12500, "Jul": 12500, "Aug": 12500, "Sep": 12500, "Oct": 12500, "Nov": 12500, "Dec": 12500 },
+        { "Category": "Cloud Hosting", "Jan": 8200, "Feb": 8202, "Mar": 8200, "Apr": 8700, "May": 8700, "Jun": 9200, "Jul": 9200, "Aug": 9200, "Sep": 9200, "Oct": 9200, "Nov": 9200, "Dec": 9200 },
+        { "Category": "Rent", "Jan": 15200, "Feb": 15200, "Mar": 15200, "Apr": 15200, "May": 15200, "Jun": 15200, "Jul": 15200, "Aug": 15200, "Sep": 15200, "Oct": 15200, "Nov": 15200, "Dec": 15200 },
+        { "Category": "Utilities", "Jan": 3700, "Feb": 3700, "Mar": 3700, "Apr": 3300, "May": 3300, "Jun": 3700, "Jul": 4200, "Aug": 4200, "Sep": 3700, "Oct": 3300, "Nov": 3700, "Dec": 4200 },
+        { "Category": "Insurance", "Jan": 5100, "Feb": 5100, "Mar": 5100, "Apr": 5100, "May": 5100, "Jun": 5100, "Jul": 5100, "Aug": 5100, "Sep": 5100, "Oct": 5100, "Nov": 5100, "Dec": 5100 },
+        { "Category": "Office Supplies", "Jan": 2200, "Feb": 2200, "Mar": 2200, "Apr": 2200, "May": 2200, "Jun": 2200, "Jul": 2800, "Aug": 2200, "Sep": 2200, "Oct": 2200, "Nov": 2800, "Dec": 3200 }
+    ]
+};
 
-export const actualSheet = [
-    { "Category": "Marketing Spend", "Jan": 5200, "Feb": 4900, "Mar": 6300, "Apr": 5400, "May": 5700, "Jun": 6100, "Jul": 6800, "Aug": 6400, "Sep": 5600, "Oct": 5100, "Nov": 7200, "Dec": 8200 },
-    { "Category": "Digital Ads", "Jan": 3100, "Feb": 2900, "Mar": 3600, "Apr": 3400, "May": 3600, "Jun": 4100, "Jul": 4200, "Aug": 3900, "Sep": 3600, "Oct": 3100, "Nov": 4700, "Dec": 5100 },
-    { "Category": "Events", "Jan": 2100, "Feb": 2000, "Mar": 2700, "Apr": 2000, "May": 2100, "Jun": 2000, "Jul": 2600, "Aug": 2500, "Sep": 2000, "Oct": 2000, "Nov": 2500, "Dec": 3100 },
-    { "Category": "Salaries", "Jan": 252000, "Feb": 250000, "Mar": 250000, "Apr": 251000, "May": 250000, "Jun": 252000, "Jul": 250000, "Aug": 253000, "Sep": 276000, "Oct": 275000, "Nov": 276000, "Dec": 278000 },
-    { "Category": "Hiring Costs", "Jan": 4800, "Feb": 5200, "Mar": 8500, "Apr": 5100, "May": 4900, "Jun": 5200, "Jul": 7800, "Aug": 5300, "Sep": 5100, "Oct": 4900, "Nov": 5200, "Dec": 5400 },
-    { "Category": "Training Costs", "Jan": 3200, "Feb": 2900, "Mar": 3100, "Apr": 3100, "May": 3200, "Jun": 3100, "Jul": 5200, "Aug": 3100, "Sep": 3200, "Oct": 3100, "Nov": 3200, "Dec": 5300 },
-    { "Category": "Software Licenses", "Jan": 12000, "Feb": 12000, "Mar": 12000, "Apr": 12000, "May": 12000, "Jun": 12000, "Jul": 12000, "Aug": 12000, "Sep": 12000, "Oct": 12000, "Nov": 12000, "Dec": 12000 },
-    { "Category": "Cloud Hosting", "Jan": 8100, "Feb": 8200, "Mar": 8100, "Apr": 8600, "May": 8700, "Jun": 9100, "Jul": 9200, "Aug": 9100, "Sep": 9100, "Oct": 9200, "Nov": 9100, "Dec": 9300 },
-    { "Category": "Rent", "Jan": 15000, "Feb": 15000, "Mar": 15000, "Apr": 15000, "May": 15000, "Jun": 15000, "Jul": 15000, "Aug": 15000, "Sep": 15000, "Oct": 15000, "Nov": 15000, "Dec": 15000 },
-    { "Category": "Utilities", "Jan": 3600, "Feb": 3400, "Mar": 3600, "Apr": 2900, "May": 3100, "Jun": 3600, "Jul": 4200, "Aug": 4100, "Sep": 3600, "Oct": 3100, "Nov": 3700, "Dec": 4200 },
-    { "Category": "Insurance", "Jan": 5000, "Feb": 5000, "Mar": 5000, "Apr": 5000, "May": 5000, "Jun": 5000, "Jul": 5000, "Aug": 5000, "Sep": 5000, "Oct": 5000, "Nov": 5000, "Dec": 5000 },
-    { "Category": "Office Supplies", "Jan": 2100, "Feb": 1900, "Mar": 2100, "Apr": 2100, "May": 2200, "Jun": 1900, "Jul": 2700, "Aug": 2100, "Sep": 2000, "Oct": 2100, "Nov": 2600, "Dec": 3200 }
-];
+export const actualSheets = {
+    '2021': [
+        { "Category": "Marketing Spend", "Jan": 4300, "Feb": 4200, "Mar": 4600, "Apr": 4300, "May": 4500, "Jun": 4700, "Jul": 5100, "Aug": 4700, "Sep": 4400, "Oct": 4300, "Nov": 5400, "Dec": 6200 },
+        { "Category": "Digital Ads", "Jan": 2600, "Feb": 2400, "Mar": 2900, "Apr": 2800, "May": 3000, "Jun": 3200, "Jul": 3500, "Aug": 3200, "Sep": 3000, "Oct": 2600, "Nov": 3900, "Dec": 4300 },
+        { "Category": "Events", "Jan": 1700, "Feb": 1600, "Mar": 2000, "Apr": 1700, "May": 1800, "Jun": 1700, "Jul": 2100, "Aug": 2000, "Sep": 1700, "Oct": 1600, "Nov": 2000, "Dec": 2300 },
+        { "Category": "Salaries", "Jan": 22200, "Feb": 22000, "Mar": 22000, "Apr": 22100, "May": 22000, "Jun": 22200, "Jul": 22000, "Aug": 22300, "Sep": 23600, "Oct": 23500, "Nov": 23600, "Dec": 23800 },
+        { "Category": "Hiring Costs", "Jan": 4100, "Feb": 4300, "Mar": 7000, "Apr": 4300, "May": 4100, "Jun": 4300, "Jul": 6800, "Aug": 4300, "Sep": 4300, "Oct": 4100, "Nov": 4300, "Dec": 4500 },
+        { "Category": "Training Costs", "Jan": 2600, "Feb": 2500, "Mar": 2700, "Apr": 2600, "May": 2700, "Jun": 2600, "Jul": 3900, "Aug": 2600, "Sep": 2700, "Oct": 2600, "Nov": 2700, "Dec": 3900 },
+        { "Category": "Software Licenses", "Jan": 10000, "Feb": 10000, "Mar": 10000, "Apr": 10000, "May": 10000, "Jun": 10000, "Jul": 10000, "Aug": 10000, "Sep": 10000, "Oct": 10000, "Nov": 10000, "Dec": 10000 },
+        { "Category": "Cloud Hosting", "Jan": 7100, "Feb": 7200, "Mar": 7100, "Apr": 7400, "May": 7500, "Jun": 7700, "Jul": 7800, "Aug": 7700, "Sep": 7700, "Oct": 7700, "Nov": 7700, "Dec": 7800 },
+        { "Category": "Rent", "Jan": 14000, "Feb": 14000, "Mar": 14000, "Apr": 14000, "May": 14000, "Jun": 14000, "Jul": 14000, "Aug": 14000, "Sep": 14000, "Oct": 14000, "Nov": 14000, "Dec": 14000 },
+        { "Category": "Utilities", "Jan": 3100, "Feb": 2900, "Mar": 3100, "Apr": 2500, "May": 2600, "Jun": 3100, "Jul": 3500, "Aug": 3400, "Sep": 3100, "Oct": 2600, "Nov": 3200, "Dec": 3500 },
+        { "Category": "Insurance", "Jan": 4600, "Feb": 4600, "Mar": 4600, "Apr": 4600, "May": 4600, "Jun": 4600, "Jul": 4600, "Aug": 4600, "Sep": 4600, "Oct": 4600, "Nov": 4600, "Dec": 4600 },
+        { "Category": "Office Supplies", "Jan": 1750, "Feb": 1650, "Mar": 1750, "Apr": 1750, "May": 1800, "Jun": 1650, "Jul": 2200, "Aug": 1750, "Sep": 1700, "Oct": 1750, "Nov": 2100, "Dec": 2500 }
+    ],
+    '2022': [
+        { "Category": "Marketing Spend", "Jan": 4800, "Feb": 4800, "Mar": 5300, "Apr": 4900, "May": 5200, "Jun": 5400, "Jul": 5700, "Aug": 5400, "Sep": 5100, "Oct": 4800, "Nov": 6100, "Dec": 6900 },
+        { "Category": "Digital Ads", "Jan": 2900, "Feb": 2700, "Mar": 3300, "Apr": 3200, "May": 3300, "Jun": 3600, "Jul": 3600, "Aug": 3500, "Sep": 3300, "Oct": 3000, "Nov": 4300, "Dec": 4700 },
+        { "Category": "Events", "Jan": 1900, "Feb": 1800, "Mar": 2200, "Apr": 2000, "May": 2000, "Jun": 2000, "Jul": 2300, "Aug": 2200, "Sep": 2000, "Oct": 1900, "Nov": 2200, "Dec": 2500 },
+        { "Category": "Salaries", "Jan": 23200, "Feb": 23200, "Mar": 23200, "Apr": 23200, "May": 23200, "Jun": 23200, "Jul": 23200, "Aug": 23200, "Sep": 24700, "Oct": 24700, "Nov": 24700, "Dec": 24700 },
+        { "Category": "Hiring Costs", "Jan": 4500, "Feb": 4900, "Mar": 7400, "Apr": 4900, "May": 4700, "Jun": 4900, "Jul": 7200, "Aug": 4900, "Sep": 4900, "Oct": 4700, "Nov": 4900, "Dec": 5100 },
+        { "Category": "Training Costs", "Jan": 2900, "Feb": 2800, "Mar": 3000, "Apr": 2900, "May": 3000, "Jun": 2900, "Jul": 4400, "Aug": 2900, "Sep": 3000, "Oct": 2900, "Nov": 3000, "Dec": 4400 },
+        { "Category": "Software Licenses", "Jan": 10800, "Feb": 10800, "Mar": 10800, "Apr": 10800, "May": 10800, "Jun": 10800, "Jul": 10800, "Aug": 10800, "Sep": 10800, "Oct": 10800, "Nov": 10800, "Dec": 10800 },
+        { "Category": "Cloud Hosting", "Jan": 7500, "Feb": 7600, "Mar": 7500, "Apr": 8000, "May": 8100, "Jun": 8300, "Jul": 8400, "Aug": 8300, "Sep": 8300, "Oct": 8400, "Nov": 8300, "Dec": 8500 },
+        { "Category": "Rent", "Jan": 14500, "Feb": 14500, "Mar": 14500, "Apr": 14500, "May": 14500, "Jun": 14500, "Jul": 14500, "Aug": 14500, "Sep": 14500, "Oct": 14500, "Nov": 14500, "Dec": 14500 },
+        { "Category": "Utilities", "Jan": 3300, "Feb": 3100, "Mar": 3300, "Apr": 2700, "May": 2900, "Jun": 3300, "Jul": 3700, "Aug": 3600, "Sep": 3300, "Oct": 2800, "Nov": 3300, "Dec": 3700 },
+        { "Category": "Insurance", "Jan": 4800, "Feb": 4800, "Mar": 4800, "Apr": 4800, "May": 4800, "Jun": 4800, "Jul": 4800, "Aug": 4800, "Sep": 4800, "Oct": 4800, "Nov": 4800, "Dec": 4800 },
+        { "Category": "Office Supplies", "Jan": 1850, "Feb": 1750, "Mar": 1850, "Apr": 1850, "May": 1950, "Jun": 1750, "Jul": 2350, "Aug": 1850, "Sep": 1800, "Oct": 1850, "Nov": 2300, "Dec": 2700 }
+    ],
+    '2023': [
+        { "Category": "Marketing Spend", "Jan": 5200, "Feb": 5200, "Mar": 6000, "Apr": 5600, "May": 5600, "Jun": 5900, "Jul": 6400, "Aug": 6200, "Sep": 5600, "Oct": 5200, "Nov": 6600, "Dec": 7400 },
+        { "Category": "Digital Ads", "Jan": 3100, "Feb": 3000, "Mar": 3500, "Apr": 3400, "May": 3500, "Jun": 3800, "Jul": 3900, "Aug": 3800, "Sep": 3600, "Oct": 3200, "Nov": 4600, "Dec": 5000 },
+        { "Category": "Events", "Jan": 2100, "Feb": 2000, "Mar": 2600, "Apr": 2100, "May": 2200, "Jun": 2100, "Jul": 2800, "Aug": 2600, "Sep": 2200, "Oct": 2100, "Nov": 2600, "Dec": 3000 },
+        { "Category": "Salaries", "Jan": 24200, "Feb": 24200, "Mar": 24200, "Apr": 24200, "May": 24200, "Jun": 24200, "Jul": 24200, "Aug": 24200, "Sep": 26200, "Oct": 26200, "Nov": 26200, "Dec": 26200 },
+        { "Category": "Hiring Costs", "Jan": 5000, "Feb": 4800, "Mar": 7800, "Apr": 4900, "May": 5000, "Jun": 4900, "Jul": 7600, "Aug": 4900, "Sep": 4900, "Oct": 4900, "Nov": 4900, "Dec": 5100 },
+        { "Category": "Training Costs", "Jan": 3000, "Feb": 2900, "Mar": 3200, "Apr": 3000, "May": 3100, "Jun": 3000, "Jul": 5000, "Aug": 3000, "Sep": 3100, "Oct": 3000, "Nov": 3100, "Dec": 5000 },
+        { "Category": "Software Licenses", "Jan": 11500, "Feb": 11500, "Mar": 11500, "Apr": 11500, "May": 11500, "Jun": 11500, "Jul": 11500, "Aug": 11500, "Sep": 11500, "Oct": 11500, "Nov": 11500, "Dec": 11500 },
+        { "Category": "Cloud Hosting", "Jan": 7900, "Feb": 8000, "Mar": 7900, "Apr": 8400, "May": 8500, "Jun": 8700, "Jul": 8800, "Aug": 8700, "Sep": 8700, "Oct": 8800, "Nov": 8700, "Dec": 8900 },
+        { "Category": "Rent", "Jan": 14750, "Feb": 14750, "Mar": 14750, "Apr": 14750, "May": 14750, "Jun": 14750, "Jul": 14750, "Aug": 14750, "Sep": 14750, "Oct": 14750, "Nov": 14750, "Dec": 14750 },
+        { "Category": "Utilities", "Jan": 3500, "Feb": 3300, "Mar": 3500, "Apr": 2900, "May": 3100, "Jun": 3500, "Jul": 3900, "Aug": 3900, "Sep": 3500, "Oct": 3100, "Nov": 3500, "Dec": 3900 },
+        { "Category": "Insurance", "Jan": 4900, "Feb": 4900, "Mar": 4900, "Apr": 4900, "May": 4900, "Jun": 4900, "Jul": 4900, "Aug": 4900, "Sep": 4900, "Oct": 4900, "Nov": 4900, "Dec": 4900 },
+        { "Category": "Office Supplies", "Jan": 2050, "Feb": 1850, "Mar": 2050, "Apr": 2050, "May": 2150, "Jun": 1850, "Jul": 2750, "Aug": 2050, "Sep": 2000, "Oct": 2050, "Nov": 2550, "Dec": 2950 }
+    ],
+    '2024': [
+        { "Category": "Marketing Spend", "Jan": 5200, "Feb": 4900, "Mar": 6300, "Apr": 5400, "May": 5700, "Jun": 6100, "Jul": 6800, "Aug": 6400, "Sep": 5600, "Oct": 5100, "Nov": 7200, "Dec": 8200 },
+        { "Category": "Digital Ads", "Jan": 3100, "Feb": 2900, "Mar": 3600, "Apr": 3400, "May": 3600, "Jun": 4100, "Jul": 4200, "Aug": 3900, "Sep": 3600, "Oct": 3100, "Nov": 4700, "Dec": 5100 },
+        { "Category": "Events", "Jan": 2100, "Feb": 2000, "Mar": 2700, "Apr": 2000, "May": 2100, "Jun": 2000, "Jul": 2600, "Aug": 2500, "Sep": 2000, "Oct": 2000, "Nov": 2500, "Dec": 3100 },
+        { "Category": "Salaries", "Jan": 25200, "Feb": 25000, "Mar": 25000, "Apr": 25100, "May": 25000, "Jun": 25200, "Jul": 25000, "Aug": 25300, "Sep": 27600, "Oct": 27500, "Nov": 27600, "Dec": 27800 },
+        { "Category": "Hiring Costs", "Jan": 4800, "Feb": 5200, "Mar": 8500, "Apr": 5100, "May": 4900, "Jun": 5200, "Jul": 7800, "Aug": 5300, "Sep": 5100, "Oct": 4900, "Nov": 5200, "Dec": 5400 },
+        { "Category": "Training Costs", "Jan": 3200, "Feb": 2900, "Mar": 3100, "Apr": 3100, "May": 3200, "Jun": 3100, "Jul": 5200, "Aug": 3100, "Sep": 3200, "Oct": 3100, "Nov": 3200, "Dec": 5300 },
+        { "Category": "Software Licenses", "Jan": 12000, "Feb": 12000, "Mar": 12000, "Apr": 12000, "May": 12000, "Jun": 12000, "Jul": 12000, "Aug": 12000, "Sep": 12000, "Oct": 12000, "Nov": 12000, "Dec": 12000 },
+        { "Category": "Cloud Hosting", "Jan": 8100, "Feb": 8200, "Mar": 8100, "Apr": 8600, "May": 8700, "Jun": 9100, "Jul": 9200, "Aug": 9100, "Sep": 9100, "Oct": 9200, "Nov": 9100, "Dec": 9300 },
+        { "Category": "Rent", "Jan": 15000, "Feb": 15000, "Mar": 15000, "Apr": 15000, "May": 15000, "Jun": 15000, "Jul": 15000, "Aug": 15000, "Sep": 15000, "Oct": 15000, "Nov": 15000, "Dec": 15000 },
+        { "Category": "Utilities", "Jan": 3600, "Feb": 3400, "Mar": 3600, "Apr": 2900, "May": 3100, "Jun": 3600, "Jul": 4200, "Aug": 4100, "Sep": 3600, "Oct": 3100, "Nov": 3700, "Dec": 4200 },
+        { "Category": "Insurance", "Jan": 5000, "Feb": 5000, "Mar": 5000, "Apr": 5000, "May": 5000, "Jun": 5000, "Jul": 5000, "Aug": 5000, "Sep": 5000, "Oct": 5000, "Nov": 5000, "Dec": 5000 },
+        { "Category": "Office Supplies", "Jan": 2100, "Feb": 1900, "Mar": 2100, "Apr": 2100, "May": 2200, "Jun": 1900, "Jul": 2700, "Aug": 2100, "Sep": 2000, "Oct": 2100, "Nov": 2600, "Dec": 3200 }
+    ],
+    '2025': [
+        { "Category": "Marketing Spend", "Jan": 5600, "Feb": 5600, "Mar": 6900, "Apr": 6100, "May": 6300, "Jun": 6700, "Jul": 7200, "Aug": 7000, "Sep": 6200, "Oct": 5600, "Nov": 8600, "Dec": 9600 },
+        { "Category": "Digital Ads", "Jan": 3500, "Feb": 3300, "Mar": 4000, "Apr": 3900, "May": 4000, "Jun": 4600, "Jul": 4700, "Aug": 4500, "Sep": 4000, "Oct": 3500, "Nov": 5400, "Dec": 5800 },
+        { "Category": "Events", "Jan": 2300, "Feb": 2200, "Mar": 3000, "Apr": 2300, "May": 2400, "Jun": 2300, "Jul": 3200, "Aug": 3000, "Sep": 2400, "Oct": 2300, "Nov": 3200, "Dec": 3600 },
+        { "Category": "Salaries", "Jan": 26200, "Feb": 26200, "Mar": 26200, "Apr": 26200, "May": 26200, "Jun": 26200, "Jul": 26200, "Aug": 26200, "Sep": 28700, "Oct": 28700, "Nov": 28700, "Dec": 28700 },
+        { "Category": "Hiring Costs", "Jan": 5200, "Feb": 5600, "Mar": 9200, "Apr": 5600, "May": 5400, "Jun": 5600, "Jul": 8600, "Aug": 5600, "Sep": 5600, "Oct": 5400, "Nov": 5600, "Dec": 5800 },
+        { "Category": "Training Costs", "Jan": 3300, "Feb": 3100, "Mar": 3300, "Apr": 3200, "May": 3300, "Jun": 3200, "Jul": 5800, "Aug": 3200, "Sep": 3300, "Oct": 3200, "Nov": 3300, "Dec": 5800 },
+        { "Category": "Software Licenses", "Jan": 12500, "Feb": 12500, "Mar": 12500, "Apr": 12500, "May": 12500, "Jun": 12500, "Jul": 12500, "Aug": 12500, "Sep": 12500, "Oct": 12500, "Nov": 12500, "Dec": 12500 },
+        { "Category": "Cloud Hosting", "Jan": 8300, "Feb": 8400, "Mar": 8300, "Apr": 8800, "May": 8900, "Jun": 9300, "Jul": 9400, "Aug": 9300, "Sep": 9300, "Oct": 9400, "Nov": 9300, "Dec": 9500 },
+        { "Category": "Rent", "Jan": 15200, "Feb": 15200, "Mar": 15200, "Apr": 15200, "May": 15200, "Jun": 15200, "Jul": 15200, "Aug": 15200, "Sep": 15200, "Oct": 15200, "Nov": 15200, "Dec": 15200 },
+        { "Category": "Utilities", "Jan": 3800, "Feb": 3600, "Mar": 3800, "Apr": 3200, "May": 3400, "Jun": 3800, "Jul": 4300, "Aug": 4200, "Sep": 3800, "Oct": 3400, "Nov": 3800, "Dec": 4300 },
+        { "Category": "Insurance", "Jan": 5100, "Feb": 5100, "Mar": 5100, "Apr": 5100, "May": 5100, "Jun": 5100, "Jul": 5100, "Aug": 5100, "Sep": 5100, "Oct": 5100, "Nov": 5100, "Dec": 5100 },
+        { "Category": "Office Supplies", "Jan": 2250, "Feb": 2050, "Mar": 2250, "Apr": 2250, "May": 2350, "Jun": 2050, "Jul": 2950, "Aug": 2250, "Sep": 2150, "Oct": 2250, "Nov": 2950, "Dec": 3350 }
+    ]
+};
