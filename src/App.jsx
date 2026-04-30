@@ -7,39 +7,6 @@ registerLicense("IAk8BicRIAEqCzQhAR8kAxMHIgRJXmBXf013TmJbYF1xa1xPaVVBRXdVR1RpTHd
 
 export default function App() {
     let spreadsheet;
-    /*let budgetData = [
-        { "Region": "South", "Branch": "Chennai", "Card Type": "Platinum", "Cards Issued": 2000, "Activation %": 0.80, "Average Spend": 450, "Revolving %": 0.40, "Interest %": 0.36 },
-        { "Region": "South", "Branch": "Chennai", "Card Type": "Gold", "Cards Issued": 3000, "Activation %": 0.75, "Average Spend": 410, "Revolving %": 0.35, "Interest %": 0.32 },
-        { "Region": "South", "Branch": "Chennai", "Card Type": "Classic", "Cards Issued": 2500, "Activation %": 0.70, "Average Spend": 395, "Revolving %": 0.30, "Interest %": 0.30 },
-        { "Region": "South", "Branch": "Coimbatore", "Card Type": "Platinum", "Cards Issued": 1400, "Activation %": 0.78, "Average Spend": 445, "Revolving %": 0.38, "Interest %": 0.35 },
-        { "Region": "South", "Branch": "Coimbatore", "Card Type": "Gold", "Cards Issued": 2000, "Activation %": 0.72, "Average Spend": 355, "Revolving %": 0.34, "Interest %": 0.32 },
-        { "Region": "South", "Branch": "Coimbatore", "Card Type": "Classic", "Cards Issued": 2500, "Activation %": 0.70, "Average Spend": 390, "Revolving %": 0.30, "Interest %": 0.30 },
-        { "Region": "South", "Branch": "Madurai", "Card Type": "Platinum", "Cards Issued": 1200, "Activation %": 0.76, "Average Spend": 340, "Revolving %": 0.36, "Interest %": 0.34 },
-        { "Region": "South", "Branch": "Madurai", "Card Type": "Gold", "Cards Issued": 1500, "Activation %": 0.65, "Average Spend": 360, "Revolving %": 0.38, "Interest %": 0.34 },
-        { "Region": "South", "Branch": "Madurai", "Card Type": "Classic", "Cards Issued": 1100, "Activation %": 0.60, "Average Spend": 385, "Revolving %": 0.32, "Interest %": 0.31 },
-        { "Region": "South", "Branch": "Trichy", "Card Type": "Platinum", "Cards Issued": 1800, "Activation %": 0.78, "Average Spend": 450, "Revolving %": 0.42, "Interest %": 0.37 },
-        { "Region": "South", "Branch": "Trichy", "Card Type": "Gold", "Cards Issued": 900, "Activation %": 0.70, "Average Spend": 410, "Revolving %": 0.35, "Interest %": 0.33 },
-        { "Region": "South", "Branch": "Trichy", "Card Type": "Classic", "Cards Issued": 700, "Activation %": 0.62, "Average Spend": 390, "Revolving %": 0.28, "Interest %": 0.29 },
-        { "Region": "West", "Branch": "Pune", "Card Type": "Platinum", "Cards Issued": 1600, "Activation %": 0.74, "Average Spend": 345, "Revolving %": 0.36, "Interest %": 0.33 },
-        { "Region": "West", "Branch": "Pune", "Card Type": "Gold", "Cards Issued": 2200, "Activation %": 0.72, "Average Spend": 410, "Revolving %": 0.33, "Interest %": 0.31 },
-        { "Region": "West", "Branch": "Pune", "Card Type": "Classic", "Cards Issued": 1400, "Activation %": 0.68, "Average Spend": 395, "Revolving %": 0.30, "Interest %": 0.29 },
-        { "Region": "North", "Branch": "Delhi", "Card Type": "Platinum", "Cards Issued": 2100, "Activation %": 0.77, "Average Spend": 455, "Revolving %": 0.43, "Interest %": 0.36 },
-        { "Region": "North", "Branch": "Delhi", "Card Type": "Gold", "Cards Issued": 1900, "Activation %": 0.70, "Average Spend": 315, "Revolving %": 0.34, "Interest %": 0.32 },
-        { "Region": "North", "Branch": "Delhi", "Card Type": "Classic", "Cards Issued": 2700, "Activation %": 0.68, "Average Spend": 400, "Revolving %": 0.29, "Interest %": 0.28 },
-        { "Region": "South", "Branch": "Kochi", "Card Type": "Platinum", "Cards Issued": 1000, "Activation %": 0.70, "Average Spend": 440, "Revolving %": 0.34, "Interest %": 0.32 },
-        { "Region": "South", "Branch": "Kochi", "Card Type": "Gold", "Cards Issued": 1300, "Activation %": 0.67, "Average Spend": 405, "Revolving %": 0.32, "Interest %": 0.30 },
-        { "Region": "South", "Branch": "Kochi", "Card Type": "Classic", "Cards Issued": 1600, "Activation %": 0.66, "Average Spend": 395, "Revolving %": 0.31, "Interest %": 0.29 },
-        { "Region": "South", "Branch": "Bengaluru", "Card Type": "Platinum", "Cards Issued": 2400, "Activation %": 0.82, "Average Spend": 460, "Revolving %": 0.44, "Interest %": 0.38 },
-        { "Region": "South", "Branch": "Bengaluru", "Card Type": "Gold", "Cards Issued": 2100, "Activation %": 0.78, "Average Spend": 330, "Revolving %": 0.36, "Interest %": 0.34 },
-        { "Region": "South", "Branch": "Bengaluru", "Card Type": "Classic", "Cards Issued": 1800, "Activation %": 0.70, "Average Spend": 305, "Revolving %": 0.33, "Interest %": 0.31 },
-        { "Region": "East", "Branch": "Kolkata", "Card Type": "Platinum", "Cards Issued": 1500, "Activation %": 0.75, "Average Spend": 445, "Revolving %": 0.38, "Interest %": 0.35 },
-        { "Region": "East", "Branch": "Kolkata", "Card Type": "Gold", "Cards Issued": 2000, "Activation %": 0.70, "Average Spend": 410, "Revolving %": 0.34, "Interest %": 0.33 },
-        { "Region": "East", "Branch": "Kolkata", "Card Type": "Classic", "Cards Issued": 1700, "Activation %": 0.69, "Average Spend": 400, "Revolving %": 0.30, "Interest %": 0.29 },
-        { "Region": "West", "Branch": "Mumbai", "Card Type": "Platinum", "Cards Issued": 2300, "Activation %": 0.79, "Average Spend": 360, "Revolving %": 0.41, "Interest %": 0.37 },
-        { "Region": "West", "Branch": "Mumbai", "Card Type": "Gold", "Cards Issued": 2500, "Activation %": 0.76, "Average Spend": 420, "Revolving %": 0.35, "Interest %": 0.34 },
-        { "Region": "West", "Branch": "Mumbai", "Card Type": "Classic", "Cards Issued": 1900, "Activation %": 0.70, "Average Spend": 405, "Revolving %": 0.32, "Interest %": 0.30 }
-    ];*/
-
     let budgetData = [
     { "Region": "South", "Branch": "Dallas", "Card Type": "Platinum", "Cards Issued": 2000, "Activation %": 0.80, "Average Spend": 450, "Revolving %": 0.40, "Interest %": 0.36 },
     { "Region": "South", "Branch": "Dallas", "Card Type": "Gold", "Cards Issued": 3000, "Activation %": 0.75, "Average Spend": 410, "Revolving %": 0.35, "Interest %": 0.32 },
@@ -72,16 +39,12 @@ export default function App() {
     { "Region": "West", "Branch": "Los Angeles", "Card Type": "Gold", "Cards Issued": 2500, "Activation %": 0.76, "Average Spend": 420, "Revolving %": 0.35, "Interest %": 0.34 },
     { "Region": "West", "Branch": "Los Angeles", "Card Type": "Classic", "Cards Issued": 1900, "Activation %": 0.70, "Average Spend": 405, "Revolving %": 0.32, "Interest %": 0.30 }
 ];
-
-
     const actionBegin = (args) =>{
         console.log(args);
     }
-
     const actionComplete = (args) =>{
         console.log(args);
     }
-
     const columnLetterToIndex = (letters) => {
         let index = 0;
         for (let i = 0; i < letters.length; i++) {
@@ -225,23 +188,15 @@ export default function App() {
         spreadsheet.numberFormat('$#,##0.00', 'budgetSheet!G1:G33');
         spreadsheet.numberFormat('$#,##0.00', 'budgetSheet!J1:L33');
         spreadsheet.merge('budgetSheet!B1:L2');
-        //spreadsheet.cellFormat({ backgroundColor: '#CDE5E7' }, 'budgetSheet!C4:C33 E4:E33 G4:G33 I4:I33 K4:K33');
         spreadsheet.cellFormat({ fontWeight: 'bold', fontSize: '13pt', verticalAlign: 'middle', textAlign:'center' }, 'budgetSheet!B1:L2 B3:L3');
         spreadsheet.cellFormat({ backgroundColor:'#00b300', color:'#fff'},'budgetSheet!B1:L2');
         spreadsheet.cellFormat({ backgroundColor:'#F1FAEE'},'budgetSheet!A1:A100 M1:Z100 B34:L100');
         const sheetModel = getSheet(spreadsheet, 1);
         for (let i = 4; i < 34; i++) {
-            //const regionCell = sheetModel.rows[i - 1].cells[1].value;
-            // const branchesForRegion = regionBranches[regionCell];
-            // spreadsheet.addDataValidation(
-            //     { type: 'List', value1: branchesForRegion.join(','), ignoreBlank: false },
-            //     `budgetSheet!C${i}`
-            // );
             spreadsheet.updateCell({ formula: `=E${i}* F${i} * G${i}` }, `budgetSheet!J${i}`);
             spreadsheet.updateCell({ formula: `=J${i}* H${i}` }, `budgetSheet!K${i}`);
             spreadsheet.updateCell({ formula: `=K${i}* I${i}` }, `budgetSheet!L${i}`);
         }
-        //spreadsheet.addDataValidation({ type: 'List', value1: 'North,South,East,West', ignoreBlank: false }, 'budgetSheet!B4:B33');
         spreadsheet.numberFormat('0.00%', 'budgetSheet!F4:F33');
         spreadsheet.numberFormat('0.00%', 'budgetSheet!H4:I33');
         spreadsheet.conditionalFormat({ type: 'GreenDataBar', range: 'budgetSheet!E4:E33' });
@@ -251,18 +206,7 @@ export default function App() {
         spreadsheet.conditionalFormat({ type: 'ThreeTrafficLights1', range: 'budgetSheet!I4:I33' });
         spreadsheet.protectSheet(1, { selectCells: true, selectUnLockedCells: true, formatCells: true, formatRows: true, formatColumns: true, insertLink: false });
     }
-    // const interestRateMatrix = {
-    //         Chennai:   { Platinum: 0.34, Gold: 0.32, Classic: 0.30 },
-    //         Coimbatore:{ Platinum: 0.35, Gold: 0.32, Classic: 0.30 },
-    //         Madurai:   { Platinum: 0.34, Gold: 0.34, Classic: 0.31 },
-    //         Trichy:    { Platinum: 0.37, Gold: 0.33, Classic: 0.29 },
-    //         Pune:      { Platinum: 0.33, Gold: 0.31, Classic: 0.29 },
-    //         Delhi:     { Platinum: 0.36, Gold: 0.32, Classic: 0.28 },
-    //         Kochi:     { Platinum: 0.32, Gold: 0.30, Classic: 0.29 },
-    //         Bengaluru: { Platinum: 0.38, Gold: 0.34, Classic: 0.31 },
-    //         Kolkata:   { Platinum: 0.35, Gold: 0.33, Classic: 0.29 },
-    //         Mumbai:    { Platinum: 0.37, Gold: 0.34, Classic: 0.30 }
-    //     };
+
     const interestRateMatrix = {
         'Dallas': { Platinum: 0.29, Gold: 0.27, Classic: 0.25 },
         'Austin': { Platinum: 0.30, Gold: 0.28, Classic: 0.26 },
@@ -289,105 +233,7 @@ export default function App() {
         'Los Angeles': { Platinum: 220000, Gold: 150000, Classic: 80000 }
     };
 
-    // const creditLimitMatrix = {
-    //     Chennai: { Platinum: 150000, Gold: 100000, Classic: 50000 },
-    //     Coimbatore: { Platinum: 140000, Gold: 90000, Classic: 45000 },
-    //     Madurai: { Platinum: 130000, Gold: 85000, Classic: 40000 },
-    //     Trichy: { Platinum: 125000, Gold: 80000, Classic: 40000 },
-    //     Pune: { Platinum: 160000, Gold: 110000, Classic: 55000 },
-    //     Delhi: { Platinum: 180000, Gold: 120000, Classic: 60000 },
-    //     Kochi: { Platinum: 140000, Gold: 90000, Classic: 45000 },
-    //     Bengaluru: { Platinum: 200000, Gold: 140000, Classic: 70000 },
-    //     Kolkata: { Platinum: 150000, Gold: 100000, Classic: 50000 },
-    //     Mumbai: { Platinum: 220000, Gold: 150000, Classic: 80000 }
-    // };
-    
-    // const regionBranches = {
-    //     South: ['Chennai','Coimbatore','Madurai','Trichy','Kochi','Bengaluru'],
-    //     West:  ['Pune','Mumbai'],
-    //     North: ['Delhi'],
-    //     East:  ['Kolkata']
-    // };
-
-    /*const actualDataSource = () => {
-        const branches = ['Chennai', 'Coimbatore', 'Madurai', 'Trichy', 'Pune',
-            'Delhi', 'Kochi', 'Bengaluru', 'Kolkata', 'Mumbai'];
-        const cardTypes = ['Platinum', 'Gold', 'Classic'];
-        const yesNo = ['Yes', 'No'];
-        const startDate = new Date(2025, 0, 1).getTime();
-        const endDate = new Date(2025, 12, 31).getTime();
-        const dateRange = endDate - startDate;
-        const actualsData = [];
-        for (let i = 0; i < 10000; i++) {
-            const randomDate = new Date(startDate + Math.random() * dateRange);
-            const branch = branches[Math.floor(Math.random() * branches.length)];
-            const cardType = cardTypes[Math.floor(Math.random() * cardTypes.length)];
-            const cardId = `CC${String(Math.floor(Math.random() * 9000000) + 1000000)}`;
-            const maxOutstanding = 50000;
-            const outstandingBalance = Math.floor(Math.random() * (maxOutstanding + 1)); // can be 0
-            const minimumPayment = +(outstandingBalance * 0.40).toFixed(2);
-            let transactionAmt = 0;
-            let revolvingFlag = 'No';
-            let interestCharged = 0;
-            let minimumPaymentMet = 'No';
-            let delinquencyFlag = 'No';
-            if (outstandingBalance === 0) {
-                // no balance -> no transaction, no interest, no delinquency
-                transactionAmt = 0;
-                minimumPaymentMet = 'No';
-                revolvingFlag = 'No';
-                interestCharged = 0;
-                delinquencyFlag = 'No';
-            } else {
-                const interestRate = getInterestRate(branch, cardType) || 0;
-                // 20% chance to pay full outstanding (remaining === 0)
-                if (Math.random() < 0.20) {
-                    transactionAmt = outstandingBalance; // remaining = 0
-                } else {
-                    // ensure remaining > 0 by picking 1..outstandingBalance-1 when possible
-                    if (outstandingBalance > 1) {
-                        transactionAmt = Math.floor(Math.random() * (outstandingBalance - 1)) + 1; // 1 .. outstandingBalance-1
-                    } else {
-                        transactionAmt = 1; // outstandingBalance == 1 -> pay 1 (remaining 0) but that case is rare
-                    }
-                }
-                const remaining = outstandingBalance - transactionAmt;
-                minimumPaymentMet = (transactionAmt >= minimumPayment && transactionAmt > 0) ? 'Yes' : 'No';
-                if (remaining === 0) {
-                    revolvingFlag = 'No';
-                    interestCharged = 0;
-                } else {
-                    revolvingFlag = 'Yes';
-                    interestCharged = parseFloat((remaining * interestRate).toFixed(2));
-                }
-                delinquencyFlag = (outstandingBalance > 0 && minimumPaymentMet === 'No') ? 'Yes' : 'No';
-            }
-            actualsData.push({
-                'Date': randomDate.toLocaleDateString('en-IN'),
-                'Region': 'america',
-                'Branch': branch,
-                'Card Type': cardType,
-                'Customer ID': cardId,
-                'Credit Limit': '10000',
-                'Spend': outstandingBalance,
-                'Minimum Due': minimumPayment,
-                'Payment Made': transactionAmt,
-                'Payment Status': minimumPaymentMet,
-                'Balance Carried': revolvingFlag,
-                'Days Past Due': '2',
-                'Interest Amount': interestCharged,
-                'Payment Due': delinquencyFlag,
-                'Risk Flag':''
-            });
-        }
-        return actualsData;
-    }*/
     const actualDataSource = () => {
-    // const branches = [
-    //     'Chennai', 'Coimbatore', 'Madurai', 'Trichy',
-    //     'Pune', 'Delhi', 'Kochi', 'Bengaluru',
-    //     'Kolkata', 'Mumbai'
-    // ];
         const regionBranches = {
             South: ['Dallas', 'Austin', 'San Antonio', 'Houston', 'Tampa'],
             West: ['Phoenix', 'San Jose', 'Los Angeles'],
@@ -577,9 +423,6 @@ export default function App() {
             actuals!E4:E1000, Variance!D${i})`}, `Variance!K${i}`);
             spreadsheet.updateCell({ formula: `=(budgetSheet!H${i} * 0.4) + (Variance!K${i} * 0.6)`}, `Variance!L${i}`);
             spreadsheet.updateCell({ formula: `=IF(Variance!L${i} > 0.30, "High", IF( Variance!L${i} > 0.20, "Medium","Low"))` }, `Variance!M${i}`);
-            // spreadsheet.updateCell({ formula: `=SUMIFS(actuals!H4:H1000,actuals!C4:C1000,Variance!B${i}, actuals!D4:D1000 , Variance!C${i},actuals!L4:L1000,"Yes")/SUMIFS(actuals!H4:H1000,actuals!C4:C1000,Variance!B${i}, actuals!D4:D1000 , Variance!C${i})` }, `Variance!J${i}`);
-            // spreadsheet.updateCell({ formula: `=(budgetSheet!H${i}*0.4)+(Variance!J${i}*0.6)` }, `Variance!K${i}`);
-            // spreadsheet.updateCell({ formula: `=IF(Variance!K${i}>0.30,"High Risk",IF(Variance!K${i}>0.20,"Moderate Risk","Low Risk"))` }, `Variance!L${i}`);
         }
         spreadsheet.numberFormat('$#,##0.00', 'Variance!E4:G33');
         spreadsheet.numberFormat('$#,##0.00', 'Variance!I4:J33');
@@ -609,14 +452,6 @@ export default function App() {
         });
         spreadsheet.merge('Dashboard!A4:B4');
         spreadsheet.merge('Dashboard!D4:E4');
-        // spreadsheet.setBorder({ border: '1px solid #000000' }, 'BudgetSheet!B3:L3');
-        // spreadsheet.setBorder({ border: '1px solid #000000' }, 'Actuals!B3:P3');
-        // spreadsheet.setBorder({ border: '1px solid #000000' }, 'Variance!B3:L3');
-        // spreadsheet.setBorder({ border: '1px solid #000000' }, 'BudgetSheet!B3:L33', 'Vertical');
-        // spreadsheet.setBorder({ border: '1px solid #000000' }, 'Actuals!B3:P1000', 'Vertical');
-        // spreadsheet.setBorder({ border: '1px solid #000000' }, 'Variance!B3:L33', 'Vertical');
-        // spreadsheet.setBorder({ border: '1px solid #000000' }, 'Dashboard!A4:B4 D4:E4 A9:E9 A21:E21 A27:B27 D27:E27', 'Outer');
-        // spreadsheet.setBorder({ border: '1px solid #000000' }, 'Dashboard!A4:B4 D4:E4 A9:E9 A21:E21 A27:B27 D27:E27', 'Vertical');
         spreadsheet.updateCell({ formula: '=SUM(Variance!E4:E33)' }, 'Dashboard!B5');
         spreadsheet.updateCell({ formula: '=SUM(Variance!I4:I33)' }, 'Dashboard!B6');
         const branchSpend = ['Branch', 'Actual Spend', 'Actual Interest', 'Variance', 'Planned Spend'];
