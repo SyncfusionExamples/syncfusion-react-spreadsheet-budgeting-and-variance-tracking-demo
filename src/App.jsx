@@ -6,12 +6,14 @@ import { DropDownListComponent } from '@syncfusion/ej2-react-dropdowns';
 import { formatUnit, registerLicense } from '@syncfusion/ej2-base';
 import './App.css';
 import { budgetData } from './dataSource';
-import { actualSpend ,interestImage, actualInterestImage, moneyImage, varianceGraph, variancePercentage} from './dataSource'; //incomeGraph,
+import { actualSpend ,interestImage, actualInterestImage, moneyImage, varianceGraph, variancePercentage} from './dataSource';
 registerLicense("IAk8BicRIAEqCzQhAR8kAxMHIgRJXmBXf013TmJbYF1xa1xPaVVBRXdVR1RpTHdDFjhoW39cdXVXRGNdUkZzXkpea0B8WHVG");
 
 
 export default function App() {
+    
     let spreadsheet;
+    
     const getInterestRate = (branch, cardType) => {
         const base = interestRateMatrix[branch]?.[cardType];
         return base;
@@ -76,7 +78,7 @@ export default function App() {
         const wrapperDiv = document.createElement("div");
         wrapperDiv.className = 'e-custom-wrapper1';
         const iconSpan = document.createElement("span");
-        iconSpan.className = 'e-3symbols-1'; //e-low-risk
+        iconSpan.className = 'e-3symbols-1';
         wrapperDiv.appendChild(iconSpan);
         return wrapperDiv;
     };
@@ -85,7 +87,7 @@ export default function App() {
         const wrapperDiv = document.createElement("div");
         wrapperDiv.className = 'e-custom-wrapper';
         const iconSpan = document.createElement("span");
-        iconSpan.className = 'e-3symbols-2'; //e-low-risk
+        iconSpan.className = 'e-3symbols-2';
         wrapperDiv.appendChild(iconSpan);
         return wrapperDiv;
     };
@@ -94,7 +96,7 @@ export default function App() {
         const wrapperDiv = document.createElement("div");
         wrapperDiv.className = 'e-custom-wrapper';
         const iconSpan = document.createElement("span");
-        iconSpan.className = 'e-3symbols-3'; //e-low-risk
+        iconSpan.className = 'e-3symbols-3';
         wrapperDiv.appendChild(iconSpan);
         return wrapperDiv;
     };
@@ -103,7 +105,7 @@ export default function App() {
         const wrapperDiv = document.createElement("div");
         wrapperDiv.className = 'e-custom-wrapper';
         const iconSpan = document.createElement("span");
-        iconSpan.className = 'e-low-risk'; //e-low-risk
+        iconSpan.className = 'e-low-risk';
         wrapperDiv.appendChild(iconSpan);
         return wrapperDiv;
     };
@@ -151,7 +153,7 @@ export default function App() {
         });
         spreadsheet.cellFormat({ verticalAlign: 'middle' }, 'DashboardInsights!B43:H43');
         let dashboardDataCell = 28;
-        let lowPerformanceBranches = 15; //15
+        let lowPerformanceBranches = 15;
         const dataSheet = getSheet(spreadsheet, 4);
         for (let i = 43; i <= 47; i++) {
             setCell(i, 1, dashboardSheet, { formula: `=Dashboard!F${lowPerformanceBranches}` });
@@ -165,9 +167,9 @@ export default function App() {
             lowPerformanceBranches++;
         }
         spreadsheet.cellFormat({ verticalAlign: 'middle', textAlign: 'center', fontSize: '11pt' }, 'DashboardInsights!C43:E43 I43:J48')
-        spreadsheet.cellFormat({ color: '#ff0000' }, 'DashboardInsights!I44:J48 E44:E49')//I43:J48
+        spreadsheet.cellFormat({ color: '#ff0000' }, 'DashboardInsights!I44:J48 E44:E49')
         spreadsheet.cellFormat({ verticalAlign: 'middle', textAlign: 'center', fontSize: '11pt' }, 'DashboardInsights!C44:E48')
-        spreadsheet.setBorder({ border: '1px solid #d4cdcdc8' }, 'DashboardInsights!B41:E49 H41:J49 ', 'Outer'); //K49
+        spreadsheet.setBorder({ border: '1px solid #d4cdcdc8' }, 'DashboardInsights!B41:E49 H41:J49 ', 'Outer');
         spreadsheet.setBorder({ border: '1px solid #e6e6e6' }, 'DashboardInsights!B44:E48 H44:J48', 'Horizontal');
         spreadsheet.numberFormat('$#,##0.00', 'DashboardInsights!C44:E48');
         spreadsheet.conditionalFormat({ type: 'BlueDataBar', range: 'DashboardInsights!C44:C48' });
@@ -332,94 +334,88 @@ export default function App() {
         setCell(26, 17, sheet, { value: 'Deliquent Accounts' });
         setCell(26, 18, sheet, { value: 'Days Past Due(Avg)' });
         topBranch.forEach((val, i) => {
-            const col = String.fromCharCode(71 + i);
-            spreadsheet.updateCell({ value: val }, `Dashboard!${col}27`);
+            setCell(26, 6 + i, sheet, { value: val });
         });
         branchSpend.forEach((val, i) => {
-            const col = String.fromCharCode(65 + i);
-            const dataCol = String.fromCharCode(70 + i);
-            spreadsheet.updateCell({ value: val }, `Dashboard!${dataCol}9`);
-            spreadsheet.updateCell({ value: val }, `Dashboard!${col}9`);
+            setCell(8, 5 + i, sheet, { value: val });
+            setCell(8, 0 + i, sheet, { value: val });
         });
         cardSpend.forEach((val, i) => {
-            const col = String.fromCharCode(65 + i);
-            spreadsheet.updateCell({ value: val }, `Dashboard!${col}21`);
+            setCell(20, i, sheet, { value: val });
         });
-        let j = 10;
-        let newLocation = 28;
+        let j = 9;
+        let newLocation = 27;
         locations.forEach((val) => {
-            spreadsheet.updateCell({ value: val }, `Dashboard!A${j}`);
-            spreadsheet.updateCell({ value: val }, `Dashboard!F${j}`);
-            spreadsheet.updateCell({ value: val }, `Dashboard!A${newLocation}`);
-            //new data 
-            spreadsheet.updateCell({ value: val }, `Dashboard!G${newLocation}`);
-            spreadsheet.updateCell({ value: val},`Dashboard!J${newLocation}`);
-            spreadsheet.updateCell({ value: val},`Dashboard!L${newLocation}`);
-            spreadsheet.updateCell({ value: val},`Dashboard!Q${newLocation}`);
-            spreadsheet.updateCell({ formula:`=COUNTIFS(Actuals!D4:D1004,Dashboard!L${newLocation},Actuals!L4:L1004,"Full")` },`Dashboard!M${newLocation}`);
-            spreadsheet.updateCell({ formula:`=COUNTIFS(Actuals!D4:D1004,Dashboard!L${newLocation},Actuals!L4:L1004,"Partial")` },`Dashboard!N${newLocation}`);
-            spreadsheet.updateCell({ formula:`=COUNTIFS(Actuals!D4:D1004,Dashboard!L${newLocation},Actuals!L4:L1004,"Missed")` },`Dashboard!O${newLocation}`);
-            spreadsheet.updateCell({ formula: `=AVERAGEIF(Variance!C8:C37,A${newLocation},Variance!K8:K37)` }, `Dashboard!B${newLocation}`);
-            //deliquent account counts
-            spreadsheet.updateCell({ formula: `=COUNTIFS(Actuals!D4:D1004,A${newLocation},Actuals!P4:P1004,"Yes")` }, `Dashboard!R${newLocation}`);
-            //days past due
-            spreadsheet.updateCell({ formula: `=ROUND(AVERAGEIFS(Actuals!N4:N1004,Actuals!D4:D1004,A${newLocation},Actuals!P4:P1004,"Yes"),0)` }, `Dashboard!S${newLocation}`);
-            //NEW 
-            spreadsheet.updateCell({ formula: `=AVERAGEIF(Variance!C8:C37,Dashboard!J${newLocation},Variance!K8:K37` }, `Dashboard!K${newLocation}`);
-            //top 10
-            spreadsheet.updateCell({ formula: `=SUMIF(Variance!C8:C37,Dashboard!A${newLocation},Variance!F8:F37` }, `Dashboard!H${newLocation}`);
-            //average for deliquency scores     
+            setCell(j, 0, sheet, { value: val });
+            setCell(j, 5, sheet, { value: val });
+            setCell(newLocation, 0, sheet, { value: val });
+            setCell(newLocation, 6, sheet, { value: val });
+            setCell(newLocation, 9, sheet, { value: val });
+            setCell(newLocation, 11, sheet, { value: val });
+            setCell(newLocation, 16, sheet, { value: val });
+            setCell(newLocation, 12, sheet, { formula: `=COUNTIFS(Actuals!D4:D1004,Dashboard!L${newLocation+1},Actuals!L4:L1004,"Full")` });
+            setCell(newLocation, 13, sheet, { formula: `=COUNTIFS(Actuals!D4:D1004,Dashboard!L${newLocation+1},Actuals!L4:L1004,"Partial")` });
+            setCell(newLocation, 14, sheet, { formula: `=COUNTIFS(Actuals!D4:D1004,Dashboard!L${newLocation+1},Actuals!L4:L1004,"Missed")` });
+            setCell(newLocation, 1, sheet, { formula: `=AVERAGEIF(Variance!C8:C37,A${newLocation+1},Variance!K8:K37)` });
+            setCell(newLocation, 17, sheet, { formula: `=COUNTIFS(Actuals!D4:D1004,A${newLocation+1},Actuals!P4:P1004,"Yes")` });
+            setCell(newLocation, 18, sheet, { formula: `=ROUND(AVERAGEIFS(Actuals!N4:N1004,Actuals!D4:D1004,A${newLocation+1},Actuals!P4:P1004,"Yes"),0)` });
+            setCell(newLocation, 10, sheet, { formula: `=AVERAGEIF(Variance!C8:C37,Dashboard!J${newLocation+1},Variance!K8:K37)` });
+            setCell(newLocation, 7, sheet, { formula: `=SUMIF(Variance!C8:C37,Dashboard!A${newLocation+1},Variance!F8:F37)` });
             newLocation++;
             j++;
         });
-        for (let k = 10; k < 20; k++) {
-            spreadsheet.updateCell({ formula: `=SUMIF(Variance!C8:C37,Dashboard!A${k},Variance!F8:F37` }, `Dashboard!C${k}`);
-            spreadsheet.updateCell({ formula: `=SUMIF(Variance!C8:C37,Dashboard!A${k},Variance!J8:J37` }, `Dashboard!D${k}`);
-            spreadsheet.updateCell({ formula: `=SUMIF(Variance!C8:C37,Dashboard!A${k},Variance!G8:G37` }, `Dashboard!E${k}`);
-            spreadsheet.updateCell({ formula: `=SUMIF(Budget!C8:C37,Dashboard!A${k},Budget!J8:J37` }, `Dashboard!B${k}`);
-            spreadsheet.updateCell({ formula: `=SUMIF(Variance!C8:C37,Dashboard!A${k},Variance!F8:F37` }, `Dashboard!H${k}`);
-            spreadsheet.updateCell({ formula: `=SUMIF(Variance!C8:C37,Dashboard!A${k},Variance!J8:J37` }, `Dashboard!I${k}`);
-            //chart
-            spreadsheet.updateCell({ formula: `=SUMIF(Variance!C8:C37,Dashboard!A${k},Variance!J8:J37` }, `Dashboard!I${k + 18}`);
-            spreadsheet.updateCell({ formula: `=SUMIF(Variance!C8:C37,Dashboard!A${k},Variance!G8:G37` }, `Dashboard!J${k}`);
-            spreadsheet.updateCell({ formula: `=SUMIF(Budget!C8:C37,Dashboard!A${k},Budget!J8:J37` }, `Dashboard!G${k}`);
+        
+        for (let k = 9; k < 19; k++) {
+            setCell(k, 2, sheet, { formula: `=SUMIF(Variance!C8:C37,Dashboard!A${k + 1},Variance!F8:F37` });
+            setCell(k, 3, sheet, { formula: `=SUMIF(Variance!C8:C37,Dashboard!A${k + 1},Variance!J8:J37` });
+            setCell(k, 4, sheet, { formula: `=SUMIF(Variance!C8:C37,Dashboard!A${k + 1},Variance!G8:G37` });
+            setCell(k, 1, sheet, { formula: `=SUMIF(Budget!C5:C34,Dashboard!A${k + 1},Budget!J5:J34` });
+            setCell(k, 7, sheet, { formula: `=SUMIF(Variance!C8:C37,Dashboard!A${k + 1},Variance!F8:F37` });
+            setCell(k, 8, sheet, { formula: `=SUMIF(Variance!C8:C37,Dashboard!A${k + 1},Variance!J8:J37` });
+            setCell(k + 18, 8, sheet, { formula: `=SUMIF(Variance!C8:C37,Dashboard!A${k + 1},Variance!J8:J37` });
+            setCell(k, 9, sheet, { formula: `=SUMIF(Variance!C8:C37,Dashboard!A${k + 1},Variance!G8:G37` });
+            setCell(k, 6, sheet, { formula: `=SUMIF(Budget!C5:C34,Dashboard!A${k + 1},Budget!J5:J34` });
         }
-        let cardTrackNumber = 22;
+    
+        let cardTrackNumber = 21;
         cardTypes.forEach((val) => {
-            spreadsheet.updateCell({ value: val }, `Dashboard!A${cardTrackNumber}`);
-            spreadsheet.updateCell({ value: val }, `Dashboard!G${cardTrackNumber}`);
-            spreadsheet.updateCell({ value: val }, `Dashboard!D${cardTrackNumber + 6}`);
-            spreadsheet.updateCell({ formula: `=AVERAGEIF(Variance!D8:D37,D${cardTrackNumber + 6} , Variance!K8:K37)` }, `Dashboard!E${cardTrackNumber + 6}`);
+            setCell(cardTrackNumber, 0, sheet, { value: val });
+            setCell(cardTrackNumber, 6, sheet, { value: val });
+            setCell(cardTrackNumber + 6, 3, sheet, { value: val });
+            setCell(cardTrackNumber + 6, 4, sheet, { formula: `=AVERAGEIF(Variance!D8:D37,D${cardTrackNumber + 7} , Variance!K8:K37)` });
             cardTrackNumber++;
         })
-        for (let i = 22; i < 25; i++) {
-            spreadsheet.updateCell({ formula: `=SUMIF(Variance!D8:D37,Dashboard!A${i},Variance!F8:F37` }, `Dashboard!B${i}`);
-            spreadsheet.updateCell({ formula: `=SUMIF(Variance!D8:D37,Dashboard!A${i},Variance!J8:J37` }, `Dashboard!C${i}`);
-            spreadsheet.updateCell({ formula: `=SUMIF(Variance!D8:D37,Dashboard!A${i},Variance!G8:G37` }, `Dashboard!D${i}`);
-            spreadsheet.updateCell({ formula: `=SUMIF(Budget!D8:D37,Dashboard!A${i},Budget!J8:J37` }, `Dashboard!E${i}`);
-            //bar chart formulas
-            spreadsheet.updateCell({ formula:`=COUNTIFS(Actuals!E4:E1004,Dashboard!G${i},Actuals!L4:L1004,"Full")/1000` },`Dashboard!H${i}`);
-            spreadsheet.updateCell({ formula:`=COUNTIFS(Actuals!E4:E1004,Dashboard!G${i},Actuals!L4:L1004,"Partial")/1000` },`Dashboard!I${i}`);
-            spreadsheet.updateCell({ formula:`=COUNTIFS(Actuals!E4:E1004,Dashboard!G${i},Actuals!L4:L1004,"Missed")/1000` },`Dashboard!J${i}`);
+
+        for (let i = 21; i < 24; i++) {
+            
+            setCell(i, 1, sheet, { formula: `=SUMIF(Variance!D8:D37,Dashboard!A${i + 1},Variance!F8:F37` });
+            setCell(i, 2, sheet, { formula: `=SUMIF(Variance!D8:D37,Dashboard!A${i + 1},Variance!J8:J37` });
+            setCell(i, 3, sheet, { formula: `=SUMIF(Variance!D8:D37,Dashboard!A${i + 1},Variance!G8:G37` });
+            setCell(i, 4, sheet, { formula: `=SUMIF(Budget!D8:D37,Dashboard!A${i + 1},Budget!J8:J37` });
+            setCell(i, 7, sheet, { formula: `=COUNTIFS(Actuals!E4:E1004,Dashboard!G${i + 1},Actuals!L4:L1004,"Full")/1000` });
+            setCell(i, 8, sheet, { formula: `=COUNTIFS(Actuals!E4:E1004,Dashboard!G${i + 1},Actuals!L4:L1004,"Partial")/1000` });
+            setCell(i, 9, sheet, { formula: `=COUNTIFS(Actuals!E4:E1004,Dashboard!G${i + 1},Actuals!L4:L1004,"Missed")/1000` });
         }
+
         deliquentCalc.forEach((val, i) => {
-            const col = String.fromCharCode(65 + i);
-            const updatedCol = String.fromCharCode(74 + i);
-            spreadsheet.updateCell({ value: val }, `Dashboard!${updatedCol}27`);
-            spreadsheet.updateCell({ value: val }, `Dashboard!${col}27`);
+            const rowIndex = 26;
+            setCell(rowIndex, 9 + i, sheet, { value: val });
+            setCell(rowIndex, i, sheet, { value: val });
         })
+
         deliquentCalcCard.forEach((val, i) => {
-            const col = String.fromCharCode(68 + i);
-            spreadsheet.updateCell({ value: val }, `Dashboard!${col}27`);
+            setCell(26, 3 + i, sheet, { value: val });
         })
-        spreadsheet.updateCell({ value: 'Key Metrics' }, 'Dashboard!A4');
-        spreadsheet.updateCell({ value: 'Credit Card Risk State' }, 'Dashboard!D4');
-        let cardRiskNumber = 5;
+
+        setCell(3, 0, sheet, { value: 'Key Metrics' });
+        setCell(3, 3, sheet, { value: 'Credit Card Risk State' });
+        let cardRiskNumber = 4;
         cardRisk.forEach((val) => {
-            spreadsheet.updateCell({ value: val }, `Dashboard!D${cardRiskNumber}`);
-            spreadsheet.updateCell({ formula: `=COUNTIF(Variance!M8:M37,Dashboard!D${cardRiskNumber})` }, `Dashboard!E${cardRiskNumber}`);
+            setCell(cardRiskNumber, 3, sheet, { value: val });
+            setCell(cardRiskNumber, 4, sheet, { formula: `=COUNTIF(Variance!M8:M37,Dashboard!D${cardRiskNumber + 1})` });
             cardRiskNumber++;
         });
+
         spreadsheet.numberFormat('$#,##0.00', 'Dashboard!B10:E24');
         spreadsheet.numberFormat('$#,##0.00', 'Dashboard!H28:H37');
         spreadsheet.numberFormat('0.00%', 'Dashboard!K28:K37');
@@ -562,8 +558,7 @@ const varianceSheetCalculation = (spreadsheet) => {
     setCell(5, 10, sheet, { value: 'Risk Score', style: { fontWeight: 'bold', verticalAlign: 'middle', textAlign: 'center', fontSize: '14pt', backgroundColor: '#7A4FA3', color: '#fff' } });
     setCell(5, 11, sheet, { value: 'Action Priority', style: { fontWeight: 'bold', verticalAlign: 'middle', textAlign: 'center', fontSize: '14pt', backgroundColor: '#124B5C', color: '#fff' } });
     headers.forEach((val, i) => {
-        const col = String.fromCharCode(66 + i);
-        spreadsheet.updateCell({ value: val, }, `variance!${col}7`);
+        setCell(6, 1 + i, sheet, { value: val });
     });
     //image headers
     setCell(2, 1, sheet, { value: 'Estimated Spend', style: { fontWeight: 'bold', verticalAlign: 'middle', textAlign: 'right', fontSize: '9pt', textIndent: '30px' } });
@@ -616,7 +611,6 @@ const varianceSheetCalculation = (spreadsheet) => {
     spreadsheet.conditionalFormat({ type: 'LessThan', value: '0', range: 'Variance!G8:G37', format: { style: { color: '#ff3333', fontWeight: 'bold' } } });
     spreadsheet.setBorder({ border: '1px solid #cccccc' }, 'Variance!B6:L7');
     spreadsheet.setBorder({ border: '1px solid #cccccc' }, 'Variance!B3:B4 D3:D4 F3:F4 H3:H4 J3:J4 L3:L4', 'Outer');
-    //
     setCell(6, 6, sheet, { style: { fontSize: '11pt', backgroundColor: '#1E6B2D', color:'#fff',fontWeight: 'bold',textAlign:'center',verticalAlign:'middle' }, wrap: true, value:'Variance (Actual - Expected)' });
     setCell(6, 7, sheet, { style: { fontSize: '11pt', backgroundColor: '#1E6B2D', color:'#fff',fontWeight: 'bold',textAlign:'center',verticalAlign:'middle'  }, wrap: true, value:'Variance% (vs Expected)' });
     setCell(0, 0, sheet, { image: actualSpend });
@@ -638,7 +632,8 @@ const varianceSheetCalculation = (spreadsheet) => {
                 <SheetDirective name='Budget' showGridLines={false}></SheetDirective>
                 <SheetDirective name='Actuals' showGridLines={false}></SheetDirective>
                 <SheetDirective name='Variance' showGridLines={false}></SheetDirective>
-                <SheetDirective name='Dashboard' showGridLines={false} state='VeryHidden'></SheetDirective>
+                <SheetDirective name='Dashboard' showGridLines={false}  state='VeryHidden' ></SheetDirective> 
+               
             </SheetsDirective>
         </SpreadsheetComponent>
         
