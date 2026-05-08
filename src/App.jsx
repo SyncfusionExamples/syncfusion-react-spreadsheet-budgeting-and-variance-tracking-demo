@@ -59,27 +59,27 @@ export default function App() {
             //chart data population
             chartDataPopulation(spreadsheet);
             //Dashboard Creation
-            dashboardInsights(spreadsheet);
+            DashboardInsights(spreadsheet);
         }, 100);
     }
 
     const setRowColumnSize = (spreadsheet) => {
-        spreadsheet.setColumnsWidth(20, ['Budget!A', 'actuals!A', 'variance!A', 'DashboardInsights!F:G']);
+        spreadsheet.setColumnsWidth(20, ['Budget!A', 'actuals!A', 'variance!A', 'Dashboard Insights!F:G']);
         spreadsheet.setColumnsWidth(100, ['Budget!B:D']);
         spreadsheet.setColumnsWidth(145, ['Budget!E:L']);
-        spreadsheet.setColumnsWidth(135, ['DashboardInsights!B:E', 'DashboardInsights!N:O', 'DashboardInsights!I:J']);
+        spreadsheet.setColumnsWidth(135, ['Dashboard Insights!B:E', 'Dashboard Insights!N:O', 'Dashboard Insights!I:J']);
         spreadsheet.setColumnsWidth(130, ['Variance!B:Q']);
         spreadsheet.setColumnsWidth(100, ['actuals!B:Q']);
-        spreadsheet.setColumnsWidth(140, ['DashboardInsights!B:E', 'DashboardInsights!H:J', 'Variance!I']);
-        spreadsheet.setColumnsWidth(1, ['DashboardInsights!G']);
-        spreadsheet.setColumnsWidth(187, ['DashboardInsights!H:J']);
-        spreadsheet.setColumnsWidth(80, ['DashboardInsights!K']);
+        spreadsheet.setColumnsWidth(140, ['Dashboard Insights!B:E', 'Dashboard Insights!H:J', 'Variance!I']);
+        spreadsheet.setColumnsWidth(1, ['Dashboard Insights!G']);
+        spreadsheet.setColumnsWidth(187, ['Dashboard Insights!H:J']);
+        spreadsheet.setColumnsWidth(80, ['Dashboard Insights!K']);
         spreadsheet.setRowsHeight(40, ['Budget!3:4', 'actuals!3:4', 'Variance!6:7', 'actuals!B3:I3', 'Dashboard!9', 'Dashboard!4', 'Dashboard!21', 'Dashboard!27']);
-        spreadsheet.setRowsHeight(30, ['DashboardInsights!42:43', 'Variance!3:4']);
-        spreadsheet.setRowsHeight(25, ['DashboardInsights!44:49', 'Budget!5:33', 'actuals!5:10000', 'actuals!B4:I33', 'Variance!8:37', 'Dashboard!5:8', 'Dashboard!10:20', 'Dashboard!22:24', 'Dashboard!28:37']);
+        spreadsheet.setRowsHeight(30, ['Dashboard Insights!42:43', 'Variance!3:4']);
+        spreadsheet.setRowsHeight(25, ['Dashboard Insights!44:49', 'Budget!5:33', 'actuals!5:10000', 'actuals!B4:I33', 'Variance!8:37', 'Dashboard!5:8', 'Dashboard!10:20', 'Dashboard!22:24', 'Dashboard!28:37']);
     }
 
-    const dashboardInsights = (spreadsheet) => {
+    const DashboardInsights = (spreadsheet) => {
         //get the dashboardsheet data
         const dashboardSheet = getSheet(spreadsheet, 0);
         const headerStyle = { fontWeight: 'bold', verticalAlign: 'middle', textAlign: 'center', fontSize: '22pt', color: '#1E6B2D' };
@@ -110,14 +110,14 @@ export default function App() {
             lowPerformanceBranches++;
         }
         //applying cell formats, borders, number formats and conditional formats to dashboard sheet
-        spreadsheet.cellFormat({ verticalAlign: 'middle', textAlign: 'center', fontSize: '11pt' }, 'DashboardInsights!C43:E43 I43:J48')
-        spreadsheet.cellFormat({ color: '#ff0000' }, 'DashboardInsights!I44:J48 E44:E49')
-        spreadsheet.cellFormat({ verticalAlign: 'middle', textAlign: 'center', fontSize: '11pt' }, 'DashboardInsights!C44:E48')
-        spreadsheet.setBorder({ border: '1px solid #d4cdcdc8' }, 'DashboardInsights!B41:E49 H41:J49 ', 'Outer');
-        spreadsheet.setBorder({ border: '1px solid #e6e6e6' }, 'DashboardInsights!B44:E48 H44:J48', 'Horizontal');
-        spreadsheet.numberFormat('$#,##0.00', 'DashboardInsights!C44:E48');
-        spreadsheet.conditionalFormat({ type: 'BlueDataBar', range: 'DashboardInsights!C44:C48' });
-        spreadsheet.conditionalFormat({ type: 'GreenDataBar', range: 'DashboardInsights!D44:D48' });
+        spreadsheet.cellFormat({ verticalAlign: 'middle', textAlign: 'center', fontSize: '11pt' }, 'Dashboard Insights!C43:E43 I43:J48')
+        spreadsheet.cellFormat({ color: '#ff0000' }, 'Dashboard Insights!I44:J48 E44:E49')
+        spreadsheet.cellFormat({ verticalAlign: 'middle', textAlign: 'center', fontSize: '11pt' }, 'Dashboard Insights!C44:E48')
+        spreadsheet.setBorder({ border: '1px solid #d4cdcdc8' }, 'Dashboard Insights!B41:E49 H41:J49 ', 'Outer');
+        spreadsheet.setBorder({ border: '1px solid #e6e6e6' }, 'Dashboard Insights!B44:E48 H44:J48', 'Horizontal');
+        spreadsheet.numberFormat('$#,##0.00', 'Dashboard Insights!C44:E48');
+        spreadsheet.conditionalFormat({ type: 'BlueDataBar', range: 'Dashboard Insights!C44:C48' });
+        spreadsheet.conditionalFormat({ type: 'GreenDataBar', range: 'Dashboard Insights!D44:D48' });
         //inserting chart in the dashboard sheet
         setCell(0, 0, dashboardSheet, { chart: chart1 });
         setCell(1, 0, dashboardSheet, { chart: chart3 });
@@ -207,32 +207,32 @@ export default function App() {
         setCell(2, 9, sheet, { value: 'Payment and Behaviour ', colSpan: 4, style: { fontWeight: 'bold', verticalAlign: 'middle', textAlign: 'center', fontSize: '14pt', backgroundColor: '#1E6B2D', color: '#fff' } });
         setCell(2, 13, sheet, { value: 'Risk and Deliquency', colSpan: 4, style: { fontWeight: 'bold', verticalAlign: 'middle', textAlign: 'center', fontSize: '14pt', backgroundColor: '#8B1D18', color: '#fff' } });
         //applying cell formats, borders, number formats and conditional formats to actuals sheet
-        spreadsheet.cellFormat({ verticalAlign: 'middle', textAlign: 'center' }, 'actuals!B4:Q1000');
-        spreadsheet.cellFormat({ fontWeight: 'bold' }, 'actuals!G4:H1000');
-        spreadsheet.cellFormat({ textAlign: 'right' }, 'actuals!K5:K1000 O5:O1000');
-        spreadsheet.numberFormat('$#,##0.00', 'actuals!F1:H1000');
-        spreadsheet.numberFormat('$#,##0.00', 'actuals!I1:K1000');
-        spreadsheet.numberFormat('$#,##0.00', 'actuals!O1:O1000');
-        spreadsheet.addDataValidation({ type: 'List', value1: 'Full,Partial,Missed', ignoreBlank: false }, 'actuals!L4:L1000');
-        spreadsheet.conditionalFormat({ type: 'EqualTo', value: 'High', range: 'actuals!Q4:Q1000', cFColor: 'RedFT' });
-        spreadsheet.conditionalFormat({ type: 'EqualTo', value: 'Low', range: 'actuals!Q4:Q1000', cFColor: 'GreenFT' });
-        spreadsheet.conditionalFormat({ type: 'EqualTo', value: 'Medium', range: 'actuals!Q4:Q1000', cFColor: 'YellowFT' });
+        spreadsheet.cellFormat({ verticalAlign: 'middle', textAlign: 'center' }, 'actuals!B4:Q1004');
+        spreadsheet.cellFormat({ fontWeight: 'bold' }, 'actuals!G4:H1004');
+        spreadsheet.cellFormat({ textAlign: 'right' }, 'actuals!K5:K1004 O5:O1004');
+        spreadsheet.numberFormat('$#,##0.00', 'actuals!F1:H1004');
+        spreadsheet.numberFormat('$#,##0.00', 'actuals!I1:K1004');
+        spreadsheet.numberFormat('$#,##0.00', 'actuals!O1:O1004');
+        spreadsheet.addDataValidation({ type: 'List', value1: 'Full,Partial,Missed', ignoreBlank: false }, 'actuals!L4:L1004');
+        spreadsheet.conditionalFormat({ type: 'EqualTo', value: 'High', range: 'actuals!Q4:Q1004', cFColor: 'RedFT' });
+        spreadsheet.conditionalFormat({ type: 'EqualTo', value: 'Low', range: 'actuals!Q4:Q1004', cFColor: 'GreenFT' });
+        spreadsheet.conditionalFormat({ type: 'EqualTo', value: 'Medium', range: 'actuals!Q4:Q1004', cFColor: 'YellowFT' });
         //deliquency 
-        spreadsheet.conditionalFormat({ type: 'EqualTo', value: 'No', range: 'actuals!P4:P1000', format: { style: { backgroundColor: '#f2f2f2', fontWeight: 'bold' } } });
-        spreadsheet.conditionalFormat({ type: 'EqualTo', value: 'Yes', range: 'actuals!P4:P1000', cFColor: 'RedFT' });
+        spreadsheet.conditionalFormat({ type: 'EqualTo', value: 'No', range: 'actuals!P4:P1004', format: { style: { backgroundColor: '#f2f2f2', fontWeight: 'bold' } } });
+        spreadsheet.conditionalFormat({ type: 'EqualTo', value: 'Yes', range: 'actuals!P4:P1004', cFColor: 'RedFT' });
         //Balance carried
-        spreadsheet.conditionalFormat({ type: 'EqualTo', value: 'Yes', range: 'actuals!M4:M1000', cFColor: 'GreenFT' });
+        spreadsheet.conditionalFormat({ type: 'EqualTo', value: 'Yes', range: 'actuals!M4:M1004', cFColor: 'GreenFT' });
         // spreadsheet.conditionalFormat({ type: 'EqualTo', value: 'No', range: 'actuals!M4:M1000', format: { style: { color: '#000000' } } });
         //Payment made
-        spreadsheet.conditionalFormat({ type: 'EqualTo', value: 'Missed', range: 'actuals!L4:L1000', format: { style: { color: '#DA1212', fontWeight: 'bold' } } });
-        spreadsheet.conditionalFormat({ type: 'EqualTo', value: 'Full', range: 'actuals!L4:L1000', format: { style: { color: '#468966', fontWeight: 'bold' } } });
-        spreadsheet.conditionalFormat({ type: 'EqualTo', value: 'Partial', range: 'actuals!L4:L1000', format: { style: { color: '#230338', fontWeight: 'bold' } } });
+        spreadsheet.conditionalFormat({ type: 'EqualTo', value: 'Missed', range: 'actuals!L4:L1004', format: { style: { color: '#DA1212', fontWeight: 'bold' } } });
+        spreadsheet.conditionalFormat({ type: 'EqualTo', value: 'Full', range: 'actuals!L4:L1004', format: { style: { color: '#468966', fontWeight: 'bold' } } });
+        spreadsheet.conditionalFormat({ type: 'EqualTo', value: 'Partial', range: 'actuals!L4:L1004', format: { style: { color: '#230338', fontWeight: 'bold' } } });
         //Days past Due
-        spreadsheet.conditionalFormat({ type: 'RWColorScale', range: 'actuals!N4:N1000' });
-        spreadsheet.conditionalFormat({ type: 'GreenDataBar', range: 'actuals!O4:O1000' });
+        spreadsheet.conditionalFormat({ type: 'RWColorScale', range: 'actuals!N4:N1004' });
+        spreadsheet.conditionalFormat({ type: 'GreenDataBar', range: 'actuals!O4:O1004' });
         spreadsheet.conditionalFormat({ type: 'BlueDataBar', range: 'actuals!K4:K1000' });
         spreadsheet.setBorder({ border: '1px solid #cccccc' }, 'actuals!B3:Q4');
-        spreadsheet.setBorder({ border: '1px solid #f2f2f2' }, 'actuals!B5:Q1000');
+        spreadsheet.setBorder({ border: '1px solid #f2f2f2' }, 'actuals!B5:Q1004');
         spreadsheet.protectSheet(2, { selectCells: true, selectUnLockedCells: true, formatCells: true, formatRows: true, formatColumns: true, insertLink: false });
     };
 
@@ -471,7 +471,7 @@ export default function App() {
             openUrl='https://document.syncfusion.com/web-services/spreadsheet-editor/api/spreadsheet/open'
             saveUrl='https://document.syncfusion.com/web-services/spreadsheet-editor/api/spreadsheet/save' >
             <SheetsDirective>
-                <SheetDirective name='DashboardInsights' showGridLines={false}></SheetDirective>
+                <SheetDirective name='Dashboard Insights' showGridLines={false}></SheetDirective>
                 <SheetDirective name='Budget' showGridLines={false}></SheetDirective>
                 <SheetDirective name='Actuals' showGridLines={false}></SheetDirective>
                 <SheetDirective name='Variance' showGridLines={false}></SheetDirective>
