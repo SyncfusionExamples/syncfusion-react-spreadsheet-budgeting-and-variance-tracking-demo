@@ -6,6 +6,8 @@
     background-size: contain; /* or 100% */
     background-repeat: no-repeat;
     background-position: center;
+    position: relative;
+    right: 12px;
 }
 
 .e-medium-risk{
@@ -26,6 +28,8 @@
     background-size: contain; /* or 100% */
     background-repeat: no-repeat;
     background-position: center;
+    position: relative;
+    right: 12px;
 }
 
 
