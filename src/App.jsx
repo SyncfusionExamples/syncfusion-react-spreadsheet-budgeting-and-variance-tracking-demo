@@ -262,7 +262,7 @@ export default function App() {
         setCell(2, 15, sheet, { value: 'RISK AND DELIQUENCY', colSpan: 4, style: { fontWeight: 'bold', verticalAlign: 'middle', textAlign: 'center', fontSize: '14pt', backgroundColor: '#8B1D18', color: '#fff' } });
         //applying cell formats, borders, number formats and conditional formats to actuals sheet
         spreadsheet.cellFormat({ verticalAlign: 'middle', textAlign: 'center' }, 'actuals!B4:S1004 ');
-        spreadsheet.cellFormat({ fontWeight: 'bold' }, 'actuals!H4:I1004 O5:O1004 R5:R1004');
+        spreadsheet.cellFormat({ fontWeight: 'bold' }, 'actuals!H4:I1004');
         spreadsheet.numberFormat('$#,##0.00', 'actuals!F1:H1004');
         spreadsheet.numberFormat('$#,##0.00', 'actuals!I5:I1004');
         spreadsheet.numberFormat('$#,##0.00', 'actuals!K5:L1004');
@@ -272,19 +272,19 @@ export default function App() {
         spreadsheet.addDataValidation({ type: 'List', value1: 'Full,Partial,Missed', ignoreBlank: false }, 'actuals!N5:N1004');
         spreadsheet.addDataValidation({ type: 'List', value1: 'Yes,No', ignoreBlank: false }, 'actuals!O5:N1004');
         spreadsheet.addDataValidation({ type: 'List', value1: 'Yes,No', ignoreBlank: false }, 'actuals!R5:R1004');
-        spreadsheet.conditionalFormat({ type: 'EqualTo', value: 'High', range: 'actuals!S4:S1004', cFColor: 'RedFT' });
-        spreadsheet.conditionalFormat({ type: 'EqualTo', value: 'Low', range: 'actuals!S4:S1004', cFColor: 'GreenFT' });
-        spreadsheet.conditionalFormat({ type: 'EqualTo', value: 'Medium', range: 'actuals!S4:S1004', cFColor: 'YellowFT' });
+        spreadsheet.conditionalFormat({ type: 'EqualTo', value: 'High', range: 'actuals!S5:S1004', cFColor: 'RedFT' });
+        spreadsheet.conditionalFormat({ type: 'EqualTo', value: 'Low', range: 'actuals!S5:S1004', cFColor: 'GreenFT' });
+        spreadsheet.conditionalFormat({ type: 'EqualTo', value: 'Medium', range: 'actuals!S5:S1004', cFColor: 'YellowFT' });
         //deliquency 
-        spreadsheet.conditionalFormat({ type: 'EqualTo', value: 'No', range: 'actuals!R4:R1004', format: { style: { backgroundColor: '#f2f2f2', fontWeight: 'bold' } } });
-        spreadsheet.conditionalFormat({ type: 'EqualTo', value: 'Yes', range: 'actuals!R4:R1004', cFColor: 'RedT' });
+        spreadsheet.conditionalFormat({ type: 'EqualTo', value: 'No', range: 'actuals!R5:R1004', format: { style: { backgroundColor: '#f2f2f2', fontWeight: 'bold' } } });
+        spreadsheet.conditionalFormat({ type: 'EqualTo', value: 'Yes', range: 'actuals!R5:R1004', format: { style: { color: '#ff3333', fontWeight: 'bold' }} });
         //Balance carried
-        spreadsheet.conditionalFormat({ type: 'EqualTo', value: 'Yes', range: 'actuals!O4:O1004', cFColor: 'RedT' });
-        spreadsheet.conditionalFormat({ type: 'EqualTo', value: 'No', range: 'actuals!O4:O1004', cFColor: 'GreenFT' });
+        spreadsheet.conditionalFormat({ type: 'EqualTo', value: 'Yes', range: 'actuals!O5:O1004', format: { style: { color: '#ff3333', fontWeight: 'bold' }} });
+        spreadsheet.conditionalFormat({ type: 'EqualTo', value: 'No', range: 'actuals!O5:O1004', cFColor: 'GreenFT' });
         //Payment made
-        spreadsheet.conditionalFormat({ type: 'EqualTo', value: 'Missed', range: 'actuals!N4:N1004', format: { style: { color: '#DA1212', fontWeight: 'bold' } } });
-        spreadsheet.conditionalFormat({ type: 'EqualTo', value: 'Full', range: 'actuals!N4:N1004', format: { style: { color: '#468966', fontWeight: 'bold' } } });
-        spreadsheet.conditionalFormat({ type: 'EqualTo', value: 'Partial', range: 'actuals!N4:N1004', format: { style: { color: '#230338', fontWeight: 'bold' } } });
+        spreadsheet.conditionalFormat({ type: 'EqualTo', value: 'Missed', range: 'actuals!N5:N1004', format: { style: { color: '#DA1212', fontWeight: 'bold' } } });
+        spreadsheet.conditionalFormat({ type: 'EqualTo', value: 'Full', range: 'actuals!N5:N1004', format: { style: { color: '#468966', fontWeight: 'bold' } } });
+        spreadsheet.conditionalFormat({ type: 'EqualTo', value: 'Partial', range: 'actuals!N5:N1004', format: { style: { color: '#230338', fontWeight: 'bold' } } });
         //Days past Due
         spreadsheet.conditionalFormat({ type: 'GYRColorScale', range: 'actuals!M5:M1004' });
         spreadsheet.conditionalFormat({ type: 'RWColorScale', range: 'actuals!P5:P1004' });
