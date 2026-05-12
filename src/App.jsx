@@ -128,9 +128,8 @@ export default function App() {
                         lowPerformanceBranches--;
                     }
                     //applying cell formats, borders, number formats and conditional formats to dashboard sheet
-                    spreadsheet.cellFormat({ verticalAlign: 'middle', textAlign: 'center', fontSize: '10pt', fontWeight: 'bold' }, 'Dashboard Insights!G43:L48')
-                    spreadsheet.cellFormat({ textAlign: 'right', fontSize: '10pt', fontWeight: 'bold', verticalAlign: 'middle',fontFamily: 'Inter' }, 'Dashboard Insights!C44:D48');
-                    spreadsheet.cellFormat({ textAlign: 'left', fontSize: '10pt', fontWeight: 'bold', verticalAlign: 'middle',fontFamily: 'Inter' }, 'Dashboard Insights!B43:B48 F43:F48');
+                    spreadsheet.cellFormat({ verticalAlign: 'middle', textAlign: 'center', fontSize: '10pt', fontWeight: 'bold' }, 'Dashboard Insights!C43:D48 G43:L48');
+                    spreadsheet.cellFormat({ textAlign: 'left', fontSize: '10pt', fontWeight: 'bold', verticalAlign: 'middle', fontFamily: 'Inter', textIndent: '20px' }, 'Dashboard Insights!B43:B48 F43:F48');
                     spreadsheet.numberFormat('$#,##0.00', 'Dashboard Insights!G44:I48');
                     spreadsheet.numberFormat('0%', 'Dashboard Insights!J44:J48');
                     spreadsheet.conditionalFormat({ type: 'RWColorScale', range: 'Dashboard Insights!L44:L48' });
@@ -439,10 +438,10 @@ export default function App() {
     //chart initialization
     const chart1 = [{ type: 'Column', range: 'Dashboard!M9:O19', title: 'BRANCH WISE SPEND AND INTEREST', theme: 'Tailwind3', left: 640, top: 60, width: 570, height: 345, id: 'Chart1', isSeriesInRows: false }];
     const chart2 = [{ type: 'Doughnut', range: 'Dashboard!B6:C7', title: 'TOTAL SPEND VS TOTAL INTEREST', theme: 'Tailwind3', height: 345, left: 55, top: 60, width: 570, id: 'Chart2', legendSettings: { position: 'Right' } }];
-    const chart3 = [{ type: 'Pie', range: 'Dashboard!A27:B37', title: 'PAYMENT RISK BASED ON LOCATION', theme: 'Tailwind3', height: 345, left: 1225, width: 570, top: 415, id: 'Chart3', legendSettings: { position: 'Right' }, dataLabelSettings: { position: 'middle', visible: 'true' } }];
-    const chart4 = [{ type: 'StackingBar', range: 'Dashboard!G21:J24', title: 'PAYMENT RISK BASED ON CARD', theme: 'Tailwind3', top: 415, width: 570, left: 640, height: 345, id: 'Chart4', legendSettings: { position: 'Top' }, dataLabelSettings: { position: 'middle', visible: 'true' } }];
-    const chart5 = [{ type: 'Doughnut', range: 'Dashboard!M38:O39', title: 'PAYMENT STATUS SUMMARY', theme: 'Tailwind3', height: 345, left: 55, top: 415, width: 570, id: 'Chart5', legendSettings: { position: 'Right' }, isSeriesInRows: true, dataLabelSettings: { position: 'middle', visible: 'true' } }];
-    const chart6 = [{ type: 'Column', range: 'Dashboard!A21:A24 C21:C24', title: 'INTEREST YIELD BY CARD TYPE', theme: 'Tailwind3', height: 327, left: 1225, top: 800, width: 570, id: 'Chart6', dataLabelSettings: { position: 'middle', visible: 'true' } }];
+    const chart3 = [{ type: 'Pie', range: 'Dashboard!A27:B37', title: 'PAYMENT RISK BASED ON LOCATION', theme: 'Tailwind3', height: 345, left: 1225, width: 570, top: 415, id: 'Chart3', legendSettings: { position: 'Right' }, dataLabelSettings: { position: 'Middle', visible: 'true' } }];
+    const chart4 = [{ type: 'StackingBar100', range: 'Dashboard!G21:J24', title: 'PAYMENT RISK BASED ON CARD', theme: 'Tailwind3', top: 415, width: 570, left: 640, height: 345, id: 'Chart4', legendSettings: { position: 'Top' }, dataLabelSettings: { position: 'Middle', visible: 'true' } }];
+    const chart5 = [{ type: 'Doughnut', range: 'Dashboard!M38:O39', title: 'PAYMENT STATUS SUMMARY', theme: 'Tailwind3', height: 345, left: 55, top: 415, width: 570, id: 'Chart5', legendSettings: { position: 'Right' }, isSeriesInRows: true, dataLabelSettings: { position: 'Middle', visible: 'true' } }];
+    const chart6 = [{ type: 'Column', range: 'Dashboard!A21:A24 C21:C24', title: 'INTEREST YIELD BY CARD TYPE', theme: 'Tailwind3', height: 327, left: 1225, top: 800, width: 570, id: 'Chart6', dataLabelSettings: { position: 'Middle', visible: 'true' } }];
     const chart7 = [{ type: 'Bar', range: 'Dashboard!G27:H37', title: 'TOP 10 BRANCHES BY SPEND', theme: 'Tailwind3', left: 1225, top: 60, width: 570, height: 345, id: 'Chart7', isSeriesInRows: false, dataLabelSettings: { position: 'Outer', visible: 'true' } }];
 
     const varianceSheetCalculation = (spreadsheet) => {
