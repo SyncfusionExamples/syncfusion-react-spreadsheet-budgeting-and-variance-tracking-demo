@@ -9,19 +9,23 @@ This repository contains a complete showcase sample demonstrating how to build a
 │   ├── components/
 │   ├── styles/
 │   └── App.jsx
+|    └── App.css
+|   └── data-util.jsx
 ├── public/
 └── README.md
 ```
 
 ## ✨ Features
 
-- Provides an interactive spreadsheet interface to analyze credit card spend across Branch, Card Type, and Product segments.
-- Enables computation of core portfolio metrics, including Revolving Balance, Delinquent Spend, Revolving Rate, and Run Rate, using built‑in spreadsheet formulas.
-- Supports monitoring of portfolio performance indicators such as Total Spend, Delinquent Spend Ratio, Revolving Rate, and Run Rate, with clear visibility into planned versus actual performance.
-- Applies conditional formatting rules to visually differentiate risk levels, trends, and metric variances across the portfolio.
-- Enforces data validation to ensure controlled and consistent inputs for key dimensions, including Branch and Card Type.
-- Leverages comprehensive spreadsheet interactivity, including in‑cell data editing, formula‑driven calculations, and configurable cell styling with conditional rules to enhance data analysis.
-- Demonstrates how Syncfusion React Spreadsheet can be used as a lightweight credit card portfolio analytics user interface.
+- Provides an interactive multi-sheet spreadsheet interface to manage and analyze credit card portfolio data across Region, Branch, and Card Type segments.
+- Enables end-to-end financial tracking by integrating Budget (planned), Actuals (execution) and Variance (comparison) within a unified spreadsheet workflow.
+- Implements advanced spreadsheet formulas such as SUMIFS, COUNTIFS, IF logic, and weighted calculations to derive key metrics.
+- Supports automated behavioral analysis by calculating customer metrics like Payment Status, Days Past Due, Delinquency Flag and Revolving Balance using rule-based logic.
+- Provides risk classification and scoring through weighted formulas, enabling categorization into Low, Medium and High risk segments for better decision-making.
+- Applies conditional formatting, data bars and icon sets to visually highlight important column metrics.
+- Delivers an interactive dashboard layer with charts and KPIs to visualize.
+- Enables real-time recalculation and dynamic updates, allowing users to interactively modify data and instantly view updated insights across all sheets.
+- Demonstrates how Syncfusion React Spreadsheet can be used as a lightweight financial analytics interface for credit card portfolio management, combining planning, execution, analysis, and visualization in a single experience.
 
 ## 🧩 Technologies Used
 
