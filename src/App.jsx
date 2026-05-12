@@ -99,7 +99,7 @@ export default function App() {
         spreadsheet.setRowsHeight(46, ['Variance!7']);
         spreadsheet.setRowsHeight(30, ['Variance!3:4']);
         spreadsheet.setRowsHeight(38, ['Dashboard Insights!42:49']);
-        spreadsheet.setRowsHeight(25, ['Budget!5:33', 'actuals!5:10000', 'actuals!B4:I33', 'Variance!8:37', 'Dashboard!5:8', 'Dashboard!10:20', 'Dashboard!22:24', 'Dashboard!28:37']);
+        spreadsheet.setRowsHeight(25, ['Budget!5:34', 'actuals!5:10000', 'Variance!8:37', 'Dashboard!5:8', 'Dashboard!10:20', 'Dashboard!22:24', 'Dashboard!28:37']);
     }
 
     const dashboardInsights = (spreadsheet) => {
@@ -147,7 +147,7 @@ export default function App() {
                 })
                 .catch(err => console.error(err));
         }, 50);
-        const headerStyle = { fontWeight: 'bold', verticalAlign: 'middle', textAlign: 'center', fontSize: '22pt', color: '#1E6B2D' };
+        const headerStyle = { fontWeight: 'bold', verticalAlign: 'middle', textAlign: 'left', fontSize: '22pt', color: '#1E6B2D' };
         setCell(0, 1, dashboardSheet, { value: 'CREDIT CARD EXPENSE DASHBOARD', colSpan: 5, style: headerStyle });
         setCell(41, 1, dashboardSheet, { value: 'TOP 5 DELIQUENT BRANCHES', colSpan: 3, style: { fontFamily: 'Inter', fontSize: '11pt', verticalAlign: 'middle', textAlign: 'center' } });
         setCell(41, 5, dashboardSheet, { value: 'LOW PERFORMING BRANCHES', colSpan: 8, style: { fontFamily: 'Inter', fontSize: '11pt', verticalAlign: 'middle', textAlign: 'center' } });
@@ -239,7 +239,7 @@ export default function App() {
         const volumeSubHeaderStyle = { fontWeight: 'bold', verticalAlign: 'middle', textAlign: 'center', fontSize: '12pt', backgroundColor: '#1E6B2D', color: '#fff' }
         const riskSubHeaderStyle = { fontWeight: 'bold', verticalAlign: 'middle', textAlign: 'center', fontSize: '12pt', backgroundColor: '#B03A2E', color: '#fff' }
         //applying sheet name with proper styles for actuals
-        setCell(0, 1, sheet, { value: 'CREDIT CARD EXPENSE SUMMARY - ACTUALS', colSpan: 16, rowSpan: 1, style: headerStyle });
+        setCell(0, 1, sheet, { value: 'CREDIT CARD EXPENSE SUMMARY - ACTUALS', colSpan: 18, rowSpan: 1, style: headerStyle });
         for (let i = 1; i <= 5; i++) {
             const col = String.fromCharCode(65 + i);
             spreadsheet.updateCell({ style: financeOutcomeSubHeaderStyle }, `actuals!${col}4`);
