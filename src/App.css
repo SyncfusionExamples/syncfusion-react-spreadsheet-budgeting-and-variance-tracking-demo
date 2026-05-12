@@ -81,3 +81,8 @@
     background-repeat: no-repeat;
     background-position: center;
 }
+
+#root{
+    position: relative;
+    top: 50px;
+}
