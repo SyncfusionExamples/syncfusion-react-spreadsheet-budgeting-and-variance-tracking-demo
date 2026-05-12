@@ -442,7 +442,7 @@ export default function App() {
     const chart3 = [{ type: 'Pie', range: 'Dashboard!A27:B37', title: 'PAYMENT RISK BASED ON LOCATION', theme: 'Tailwind3', height: 345, left: 1225, width: 570, top: 415, id: 'Chart3', legendSettings: { position: 'Right' }, dataLabelSettings: { position: 'middle', visible: 'true' } }];
     const chart4 = [{ type: 'StackingBar', range: 'Dashboard!G21:J24', title: 'PAYMENT RISK BASED ON CARD', theme: 'Tailwind3', top: 415, width: 570, left: 640, height: 345, id: 'Chart4', legendSettings: { position: 'Top' }, dataLabelSettings: { position: 'middle', visible: 'true' } }];
     const chart5 = [{ type: 'Doughnut', range: 'Dashboard!M38:O39', title: 'PAYMENT STATUS SUMMARY', theme: 'Tailwind3', height: 345, left: 55, top: 415, width: 570, id: 'Chart5', legendSettings: { position: 'Right' }, isSeriesInRows: true, dataLabelSettings: { position: 'middle', visible: 'true' } }];
-    const chart6 = [{ type: 'Column', range: 'Dashboard!A21:A24 C21:C24', title: 'INTEREST YIELD BY CARD TYPE', theme: 'Tailwind3', height: 330, left: 1225, top: 815, width: 570, id: 'Chart6', dataLabelSettings: { position: 'middle', visible: 'true' } }];
+    const chart6 = [{ type: 'Column', range: 'Dashboard!A21:A24 C21:C24', title: 'INTEREST YIELD BY CARD TYPE', theme: 'Tailwind3', height: 327, left: 1225, top: 800, width: 570, id: 'Chart6', dataLabelSettings: { position: 'middle', visible: 'true' } }];
     const chart7 = [{ type: 'Bar', range: 'Dashboard!G27:H37', title: 'TOP 10 BRANCHES BY SPEND', theme: 'Tailwind3', left: 1225, top: 60, width: 570, height: 345, id: 'Chart7', isSeriesInRows: false, dataLabelSettings: { position: 'Outer', visible: 'true' } }];
 
     const varianceSheetCalculation = (spreadsheet) => {
