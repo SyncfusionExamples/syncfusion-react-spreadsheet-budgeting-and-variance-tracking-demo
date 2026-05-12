@@ -84,7 +84,7 @@ export const actualDataSource = () => {
         const balance = statementBalance - paymentMade;
         let paymentRatio = 0;
         if (balance > 0) {
-            paymentRatio = paymentMade / balance;
+            paymentRatio = paymentMade / statementBalance;
         } else {
             paymentRatio = 1;
         }
