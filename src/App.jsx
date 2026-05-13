@@ -1,7 +1,6 @@
 import * as React from 'react';
 import { createRoot } from 'react-dom/client';
-import {
-    CellDirective, CellsDirective, ColumnDirective, ColumnsDirective, getColumnHeaderText, getSheet, RangeDirective, RangesDirective, RowDirective, RowsDirective, setCell, setColumn, SheetDirective, SheetsDirective, sheetTabs, SpreadsheetComponent, wrap,
+import {  CellDirective, CellsDirective, ColumnDirective, ColumnsDirective, getColumnHeaderText, getSheet, RangeDirective, RangesDirective, RowDirective, RowsDirective, setCell, setColumn, SheetDirective, SheetsDirective, sheetTabs, SpreadsheetComponent, wrap,
 } from '@syncfusion/ej2-react-spreadsheet';
 import { DropDownListComponent } from '@syncfusion/ej2-react-dropdowns';
 import './App.css';
@@ -141,6 +140,14 @@ export default function App() {
                     spreadsheet.cellFormat({ backgroundColor: '#fff' }, 'Dashboard Insights!B41:D49 F41:M49');
                     //applying sheet protection
                     spreadsheet.protectSheet(0, { formatCells: false, formatRows: false, formatColumns: false, insertLink: false, selectCells: false });
+                    //inserting chart in the dashboard sheet
+                    setCell(0, 0, dashboardSheet, { chart: chart1 });
+                    setCell(7, 0, dashboardSheet, { chart: chart2 });
+                    setCell(2, 0, dashboardSheet, { chart: chart3 });
+                    setCell(3, 0, dashboardSheet, { chart: chart4 });
+                    setCell(4, 0, dashboardSheet, { chart: chart5 });
+                    setCell(5, 0, dashboardSheet, { chart: chart6 });
+                    setCell(6, 0, dashboardSheet, { chart: chart7 });
                     //refreshing spreadsheet to update UI
                     spreadsheet.resize();
                 })
@@ -164,14 +171,6 @@ export default function App() {
                 setCell(42, 5 + i, dashboardSheet, { value: val, style: { color: '#124B5C', fontWeight: 'bold', verticalAlign: 'middle', fontFamily: 'Inter', fontSize: '10pt' } });
             }
         });
-        //inserting chart in the dashboard sheet
-        setCell(0, 0, dashboardSheet, { chart: chart1 });
-        setCell(1, 0, dashboardSheet, { chart: chart2 });
-        setCell(2, 0, dashboardSheet, { chart: chart3 });
-        setCell(3, 0, dashboardSheet, { chart: chart4 });
-        setCell(4, 0, dashboardSheet, { chart: chart5 });
-        setCell(5, 0, dashboardSheet, { chart: chart6 });
-        setCell(6, 0, dashboardSheet, { chart: chart7 });
     }
 
     const budgetCalculation = (spreadsheet) => {
@@ -428,13 +427,13 @@ export default function App() {
     }
 
     //chart initialization
-    const chart1 = [{ type: 'Column', range: 'Dashboard!M9:O19', title: 'BRANCH WISE SPEND AND INTEREST', theme: 'Tailwind3', left: 640, top: 60, width: 570, height: 345, id: 'Chart1', isSeriesInRows: false }];
-    const chart2 = [{ type: 'Doughnut', range: 'Dashboard!B6:C7', title: 'TOTAL SPEND VS TOTAL INTEREST', theme: 'Tailwind3', height: 345, left: 55, top: 60, width: 570, id: 'Chart2', legendSettings: { position: 'Right' } }];
-    const chart5 = [{ type: 'Doughnut', range: 'Dashboard!M38:O39', title: 'PAYMENT STATUS SUMMARY', theme: 'Tailwind3', height: 345, left: 55, top: 415, width: 570, id: 'Chart5', legendSettings: { position: 'Right' }, isSeriesInRows: true, dataLabelSettings: { position: 'Middle', visible: 'true' } }];
-    const chart3 = [{ type: 'Pie', range: 'Dashboard!A27:B37', title: 'PAYMENT RISK BASED ON LOCATION', theme: 'Tailwind3', height: 345, left: 1225, width: 570, top: 415, id: 'Chart3', legendSettings: { position: 'Right' }, dataLabelSettings: { position: 'Middle', visible: 'true' } }];
-    const chart4 = [{ type: 'StackingBar100', range: 'Dashboard!G21:J24', title: 'PAYMENT RISK BASED ON CARD', theme: 'Tailwind3', top: 415, width: 570, left: 640, height: 345, id: 'Chart4', legendSettings: { position: 'Top' }, dataLabelSettings: { position: 'Middle', visible: 'true' } }];
-    const chart6 = [{ type: 'Column', range: 'Dashboard!A21:A24 C21:C24', title: 'INTEREST YIELD BY CARD TYPE', theme: 'Tailwind3', height: 328, left: 1225, top: 828, width: 570, id: 'Chart6', dataLabelSettings: { position: 'Middle', visible: 'true' } }];
-    const chart7 = [{ type: 'Bar', range: 'Dashboard!G27:H37', title: 'TOP 10 BRANCHES BY SPEND', theme: 'Tailwind3', left: 1225, top: 60, width: 570, height: 345, id: 'Chart7', isSeriesInRows: false, dataLabelSettings: { position: 'Outer', visible: 'true' } }];
+    const chart1 = [{ type: 'Column', range: 'Dashboard!M9:O19', title: 'BRANCH WISE SPEND AND INTEREST', theme: 'Tailwind3', left: 640, top: 60, width: 570, height: 345, isSeriesInRows: false }];
+    const chart2 = [{ type: 'Doughnut', range: 'Dashboard!B6:C7', title: 'TOTAL SPEND VS TOTAL INTEREST', theme: 'Tailwind3', height: 345, left: 55, top: 60, width: 570,legendSettings: { position: 'Right' } }];
+    const chart5 = [{ type: 'Doughnut', range: 'Dashboard!M38:O39', title: 'PAYMENT STATUS SUMMARY', theme: 'Tailwind3', height: 345, left: 55, top: 415, width: 570, legendSettings: { position: 'Right' }, isSeriesInRows: true, dataLabelSettings: { position: 'Middle', visible: 'true' } }];
+    const chart3 = [{ type: 'Pie', range: 'Dashboard!A27:B37', title: 'PAYMENT RISK BASED ON LOCATION', theme: 'Tailwind3', height: 345, left: 1225, width: 570, top: 415, legendSettings: { position: 'Right' }, dataLabelSettings: { position: 'Middle', visible: 'true' } }];
+    const chart4 = [{ type: 'StackingBar100', range: 'Dashboard!G21:J24', title: 'PAYMENT RISK BASED ON CARD', theme: 'Tailwind3', top: 415, width: 570, left: 640, height: 345, legendSettings: { position: 'Top' }, dataLabelSettings: { position: 'Middle', visible: 'true' } }];
+    const chart6 = [{ type: 'Column', range: 'Dashboard!A21:A24 C21:C24', title: 'INTEREST YIELD BY CARD TYPE', theme: 'Tailwind3', height: 328, left: 1225, top: 828, width: 570, dataLabelSettings: { position: 'Middle', visible: 'true' } }];
+    const chart7 = [{ type: 'Bar', range: 'Dashboard!G27:H37', title: 'TOP 10 BRANCHES BY SPEND', theme: 'Tailwind3', left: 1225, top: 60, width: 570, height: 345, isSeriesInRows: false, dataLabelSettings: { position: 'Outer', visible: 'true' } }];
 
     const varianceSheetCalculation = (spreadsheet) => {
         const sheet = getSheet(spreadsheet, 3);
