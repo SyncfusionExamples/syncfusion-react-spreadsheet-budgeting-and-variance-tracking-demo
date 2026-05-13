@@ -220,12 +220,11 @@ export default function App() {
         spreadsheet.cellFormat({ verticalAlign: 'middle', textAlign: 'center' }, 'Budget!B5:D34 F4:L34');
         spreadsheet.cellFormat({backgroundColor:'#fff'}, 'Budget!B5:K34');
         spreadsheet.cellFormat({ backgroundColor: '#E6F4EA' }, 'Budget!L5:L34');
-        spreadsheet.conditionalFormat({ type: 'Top10Items', range: 'Budget!L5:L34', value: '5', format: { style: { backgroundColor: '#c6efce' } } }); //#c6efce
         spreadsheet.conditionalFormat({ type: 'BlueDataBar', range: 'Budget!E4:E34' });
         spreadsheet.conditionalFormat({ type: 'RWColorScale', range: 'Budget!H4:H34' });
         spreadsheet.conditionalFormat({ type: 'ThreeTrafficLights1', range: 'Budget!F4:F34' });
         spreadsheet.conditionalFormat({ type: 'RWColorScale', range: 'Budget!H4:H34' });
-        spreadsheet.conditionalFormat({ type: 'ThreeTrafficLights1', range: 'Budget!I4:I34' });
+        spreadsheet.conditionalFormat({ type: 'GWColorScale', range: 'Budget!L4:L34' });
         //applying sheet protection
         spreadsheet.protectSheet(1, { formatCells: false, formatRows: false, formatColumns: false, insertLink: false, selectCells: true });
     }
@@ -314,7 +313,6 @@ export default function App() {
         setCell(6, 2, sheet, { formula: '=SUM(Variance!I4:I33)' });
         const branchSpend = ['Branch', 'Planned Spend', 'Actual Spend', 'Actual Interest', 'Variance'];
         const cardSpend = ['Card Type', 'Actual Spend', 'Actual Interest', 'Variance', 'Planned Spend'];
-        const cardRisk = ['Low', 'Medium', 'High'];
         const deliquentCalc = ['Branch', 'Payment Risk'];
         const topBranch = ['Branch', 'Actual Spend', 'Actual Interest'];
         const deliquentCalcCard = ['Card', 'Payment Risk'];
@@ -416,16 +414,10 @@ export default function App() {
         deliquentCalcCard.forEach((val, i) => {
             setCell(26, 3 + i, sheet, { value: val });
         })
-        
-        let cardRiskNumber = 4;
-        cardRisk.forEach((val) => {
-            setCell(cardRiskNumber, 3, sheet, { value: val });
-            setCell(cardRiskNumber, 4, sheet, { formula: `=COUNTIF(Variance!M8:M37,Dashboard!D${cardRiskNumber + 1})` });
-            cardRiskNumber++;
-        });
 
         spreadsheet.numberFormat('$#,##0.00', 'Dashboard!B10:E24');
         spreadsheet.numberFormat('$#,##0.00', 'Dashboard!H28:H37');
+        spreadsheet.numberFormat('$#,##0.00', 'Dashboard!C6:C7');
         spreadsheet.numberFormat('0%', 'Dashboard!K28:K37');
         spreadsheet.numberFormat('0%', 'Dashboard!H22:J25');
         spreadsheet.numberFormat('$#,##0.00', 'Dashboard!B4:B6 ');
@@ -438,10 +430,10 @@ export default function App() {
     //chart initialization
     const chart1 = [{ type: 'Column', range: 'Dashboard!M9:O19', title: 'BRANCH WISE SPEND AND INTEREST', theme: 'Tailwind3', left: 640, top: 60, width: 570, height: 345, id: 'Chart1', isSeriesInRows: false }];
     const chart2 = [{ type: 'Doughnut', range: 'Dashboard!B6:C7', title: 'TOTAL SPEND VS TOTAL INTEREST', theme: 'Tailwind3', height: 345, left: 55, top: 60, width: 570, id: 'Chart2', legendSettings: { position: 'Right' } }];
+    const chart5 = [{ type: 'Doughnut', range: 'Dashboard!M38:O39', title: 'PAYMENT STATUS SUMMARY', theme: 'Tailwind3', height: 345, left: 55, top: 415, width: 570, id: 'Chart5', legendSettings: { position: 'Right' }, isSeriesInRows: true, dataLabelSettings: { position: 'Middle', visible: 'true' } }];
     const chart3 = [{ type: 'Pie', range: 'Dashboard!A27:B37', title: 'PAYMENT RISK BASED ON LOCATION', theme: 'Tailwind3', height: 345, left: 1225, width: 570, top: 415, id: 'Chart3', legendSettings: { position: 'Right' }, dataLabelSettings: { position: 'Middle', visible: 'true' } }];
     const chart4 = [{ type: 'StackingBar100', range: 'Dashboard!G21:J24', title: 'PAYMENT RISK BASED ON CARD', theme: 'Tailwind3', top: 415, width: 570, left: 640, height: 345, id: 'Chart4', legendSettings: { position: 'Top' }, dataLabelSettings: { position: 'Middle', visible: 'true' } }];
-    const chart5 = [{ type: 'Doughnut', range: 'Dashboard!M38:O39', title: 'PAYMENT STATUS SUMMARY', theme: 'Tailwind3', height: 345, left: 55, top: 415, width: 570, id: 'Chart5', legendSettings: { position: 'Right' }, isSeriesInRows: true, dataLabelSettings: { position: 'Middle', visible: 'true' } }];
-    const chart6 = [{ type: 'Column', range: 'Dashboard!A21:A24 C21:C24', title: 'INTEREST YIELD BY CARD TYPE', theme: 'Tailwind3', height: 327, left: 1225, top: 800, width: 570, id: 'Chart6', dataLabelSettings: { position: 'Middle', visible: 'true' } }];
+    const chart6 = [{ type: 'Column', range: 'Dashboard!A21:A24 C21:C24', title: 'INTEREST YIELD BY CARD TYPE', theme: 'Tailwind3', height: 328, left: 1225, top: 828, width: 570, id: 'Chart6', dataLabelSettings: { position: 'Middle', visible: 'true' } }];
     const chart7 = [{ type: 'Bar', range: 'Dashboard!G27:H37', title: 'TOP 10 BRANCHES BY SPEND', theme: 'Tailwind3', left: 1225, top: 60, width: 570, height: 345, id: 'Chart7', isSeriesInRows: false, dataLabelSettings: { position: 'Outer', visible: 'true' } }];
 
     const varianceSheetCalculation = (spreadsheet) => {
@@ -455,7 +447,7 @@ export default function App() {
         const segmentHeader = ['Region', 'Branch', 'Card Type'];
         const performanceHeader = ['Expected Spend', 'Actual Spend', 'Variance\n(Actual - Expected)', 'Variance%\n(vs Expected)'];
         const interestImpactHeader = ['Expected Interest', 'Actual Interest'];
-        setCell(0, 1, sheet, { value: 'CREDIT CARD EXPENSE SUMMARY - VARIANCE ANALYSIS', colSpan: 12, rowSpan: 1, style: headerStyle });
+        setCell(0, 1, sheet, { value: 'CREDIT CARD EXPENSE SUMMARY - VARIANCE ANALYSIS', colSpan: 11, style: headerStyle });
         setCell(6, 10, sheet, { style: riskSubHeaderStyle, value: 'Payment Risk' });
         setCell(6, 11, sheet, { style: { fontWeight: 'bold', verticalAlign: 'middle', textAlign: 'center', fontSize: '12pt', backgroundColor: '#124B5C', color: '#fff' }, value: 'Risk Level' });
         setCell(5, 1, sheet, { value: 'SEGMENT', colSpan: 3, style: { fontWeight: 'bold', verticalAlign: 'middle', textAlign: 'center', fontSize: '14pt', backgroundColor: '#0E3A4A', color: '#fff' } });
@@ -538,7 +530,6 @@ export default function App() {
         spreadsheet.setBorder({ border: '1px solid #cccccc' }, 'Variance!B6:L7');
         spreadsheet.setBorder({ border: '1px solid #cccccc' }, 'Variance!B3:B4 D3:D4 F3:F4 H3:H4 J3:J4 L3:L4', 'Outer');
         spreadsheet.cellFormat({backgroundColor:'#fff'}, 'Variance!B3:B4 D3:D4 F3:F4 H3:H4 J3:J4 L3:L4 B8:L37');
-
         //Image insertion
         setCell(0, 0, sheet, { image: actualSpend });
         setCell(0, 2, sheet, { image: varianceGraph });
