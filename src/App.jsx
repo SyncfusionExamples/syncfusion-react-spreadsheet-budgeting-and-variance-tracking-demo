@@ -268,7 +268,7 @@ export default function App() {
         spreadsheet.numberFormat('0%', 'actuals!J5:J1004');
         spreadsheet.numberFormat('0%', 'actuals!M5:M1004');
         spreadsheet.addDataValidation({ type: 'List', value1: 'Full,Partial,Missed', ignoreBlank: false }, 'actuals!N5:N1004');
-        spreadsheet.addDataValidation({ type: 'List', value1: 'Yes,No', ignoreBlank: false }, 'actuals!O5:N1004');
+        spreadsheet.addDataValidation({ type: 'List', value1: 'Yes,No', ignoreBlank: false }, 'actuals!O5:O1004');
         spreadsheet.addDataValidation({ type: 'List', value1: 'Yes,No', ignoreBlank: false }, 'actuals!R5:R1004');
         spreadsheet.conditionalFormat({ type: 'EqualTo', value: 'High', range: 'actuals!S5:S1004', cFColor: 'RedFT' });
         spreadsheet.conditionalFormat({ type: 'EqualTo', value: 'Low', range: 'actuals!S5:S1004', cFColor: 'GreenFT' });
