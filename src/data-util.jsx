@@ -50,8 +50,6 @@ export const actualDataSource = () => {
         const base = interestRateMatrix[branch]?.[cardType];
         return base;
     };
-    const branches = ['Dallas', 'Austin', 'San Antonio', 'Houston', 'Tampa', 'San Jose', 'Phoenix', 'New York', 'Chicago', 'Los Angeles']
-    const cardTypes = ['Platinum', 'Gold', 'Classic'];
     const actualsData = [];
     for (let i = 0; i < actualData.length; i++) {
         const rowData = actualData[i];
@@ -62,42 +60,15 @@ export const actualDataSource = () => {
         const cardId = rowData["Customer ID"];
         const creditLimit = rowData["Credit Limit"];
         const statementBalance = rowData["Spend"];
-        const utilization = statementBalance / creditLimit;
-        // 5–10% minimum due
-        const minimumDue = +(statementBalance * (0.05 + Math.random() * 0.05)).toFixed(2);
-        // Payment Made (static input)
         const paymentMade = rowData["Payment made"];
-        // Payment Status (Derived)
-        let paymentStatus = 'Missed';
-        if (paymentMade >= statementBalance && statementBalance > 0) {
-            paymentStatus = 'Full';
-        } else if (paymentMade > 0) {
-            paymentStatus = 'Partial';
-        }
-        // Balance Carried (Derived)
-        const balanceCarried = paymentMade < statementBalance ? 'Yes' : 'No';
-        // Days Past Due
         const daysPastDue = rowData["daysPastDue"];
         const interestRate = getInterestRate(branch, cardType);
-        const interestAmount = balanceCarried === 'Yes' ? +((statementBalance - paymentMade) * interestRate).toFixed(2) : 0;
-        const isDelinquent = daysPastDue > 0 ? 'Yes' : 'No';
-        const balance = statementBalance - paymentMade;
-        let paymentRatio = 0;
-        if (balance > 0) {
-            paymentRatio = paymentMade / statementBalance;
-        } else {
-            paymentRatio = 1;
-        }
-        let riskFlag = 'Low';
-        if (daysPastDue >= 30) {
-            riskFlag = 'High';
-        } else if (daysPastDue > 0) {
-            riskFlag = 'Medium';
-        }
+        //exact row number where formulas needs to be calculated
+        let rowNumber = i + 5;
         actualsData.push({
             'Date': date, 'Region': region, 'Branch': branch, 'Card Type': cardType, 'Customer ID': cardId, 'Credit Limit': creditLimit,
-            'Spend': statementBalance, 'Statement\nBalance': statementBalance, 'Utilization %\n(Balance/Limit)': utilization, 'Minimum\nDue': minimumDue, 'Payment\nMade': paymentMade, 'Payment Ratio %\n(Paid/Balance)': paymentRatio, 'Payment\nStatus': paymentStatus, 'Balance\nCarried': balanceCarried,
-            'Days\nPast Due': daysPastDue, 'Interest': interestAmount, 'Is\nDelinquent': isDelinquent, 'Risk\nFlag': riskFlag
+            'Spend': statementBalance, 'Statement\nBalance': statementBalance, 'Utilization %\n(Balance/Limit)': `=I${rowNumber}/G${rowNumber}`, 'Minimum\nDue': `=ROUND(I${rowNumber}*0.05,2)`, 'Payment\nMade': paymentMade , 'Payment Ratio %\n(Paid/Balance)': `=IF((I${rowNumber}-L${rowNumber})>0,L${rowNumber}/I${rowNumber},1)`, 'Payment\nStatus': `=IF(AND(L${rowNumber}>=I${rowNumber},I${rowNumber}>0),"Full",IF(L${rowNumber}>0,"Partial","Missed"))`, 'Balance\nCarried': `=IF(L${rowNumber}<I${rowNumber},"Yes","No")`,
+            'Days\nPast Due': daysPastDue, 'Interest': `=IF(O${rowNumber}="Yes",ROUND((I${rowNumber}-L${rowNumber})*${interestRate},2),0)`, 'Is\nDelinquent': `=IF(P${rowNumber}>0,"Yes","No")`, 'Risk\nFlag': `=IF(P${rowNumber}>=30,"High",IF(P${rowNumber}>0,"Medium","Low"))`
         });
     }
     return actualsData;
