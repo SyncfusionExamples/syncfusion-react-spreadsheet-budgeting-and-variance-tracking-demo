@@ -429,7 +429,7 @@ export default function App() {
 
     //chart initialization
     const chart1 = [{ type: 'Column', range: 'Dashboard!M9:O19', title: 'BRANCH WISE SPEND AND INTEREST', theme: 'Tailwind3', left: 640, top: 60, width: 570, height: 345, isSeriesInRows: false }];
-    const chart2 = [{ type: 'Doughnut', range: 'Dashboard!B6:C7', title: 'TOTAL SPEND VS TOTAL INTEREST', theme: 'Tailwind3', height: 345, left: 55, top: 60, width: 570,legendSettings: { position: 'Right' } }];
+    const chart2 = [{ type: 'Doughnut', range: 'Dashboard!B6:C7', title: 'TOTAL SPEND VS TOTAL INTEREST', theme: 'Tailwind3', height: 345, left: 55, top: 60, width: 570, legendSettings: { position: 'Right' } }];
     const chart5 = [{ type: 'Doughnut', range: 'Dashboard!M38:O39', title: 'PAYMENT STATUS SUMMARY', theme: 'Tailwind3', height: 345, left: 55, top: 430, width: 570, legendSettings: { position: 'Right' }, isSeriesInRows: true, dataLabelSettings: { position: 'Middle', visible: 'true' } }];
     const chart3 = [{ type: 'Pie', range: 'Dashboard!A27:B37', title: 'PAYMENT RISK BASED ON LOCATION', theme: 'Tailwind3', height: 345, left: 1225, width: 570, top: 430, legendSettings: { position: 'Right' }, dataLabelSettings: { position: 'Middle', visible: 'true' } }];
     const chart4 = [{ type: 'StackingBar100', range: 'Dashboard!G21:J24', title: 'PAYMENT RISK BASED ON CARD', theme: 'Tailwind3', top: 430, width: 570, left: 640, height: 345, legendSettings: { position: 'Top' }, dataLabelSettings: { position: 'Middle', visible: 'true' } }];
