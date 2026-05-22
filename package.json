@@ -10,8 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@syncfusion/ej2-react-dropdowns": "^32.2.9",
-    "@syncfusion/ej2-react-spreadsheet": "^33.1.44",
+    "@syncfusion/ej2-react-spreadsheet": "*",
     "react": "^19.2.0",
     "react-dom": "^19.2.0"
   },

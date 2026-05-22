@@ -2,7 +2,6 @@ import * as React from 'react';
 import { createRoot } from 'react-dom/client';
 import {  CellDirective, CellsDirective, ColumnDirective, ColumnsDirective, getColumnHeaderText, getSheet, RangeDirective, RangesDirective, RowDirective, RowsDirective, setCell, setColumn, SheetDirective, SheetsDirective, sheetTabs, SpreadsheetComponent, wrap,
 } from '@syncfusion/ej2-react-spreadsheet';
-import { DropDownListComponent } from '@syncfusion/ej2-react-dropdowns';
 import './App.css';
 import { budgetData, actualDataSource, actualData } from './data-util';
 import {
@@ -433,7 +432,7 @@ export default function App() {
     const chart5 = [{ type: 'Doughnut', range: 'Dashboard!M38:O39', title: 'PAYMENT STATUS SUMMARY', theme: 'Tailwind3', height: 345, left: 55, top: 430, width: 570, legendSettings: { position: 'Right' }, isSeriesInRows: true, dataLabelSettings: { position: 'Middle', visible: 'true' } }];
     const chart3 = [{ type: 'Pie', range: 'Dashboard!A27:B37', title: 'PAYMENT RISK BASED ON LOCATION', theme: 'Tailwind3', height: 345, left: 1225, width: 570, top: 430, legendSettings: { position: 'Right' }, dataLabelSettings: { position: 'Middle', visible: 'true' } }];
     const chart4 = [{ type: 'StackingBar100', range: 'Dashboard!G21:J24', title: 'PAYMENT RISK BASED ON CARD', theme: 'Tailwind3', top: 430, width: 570, left: 640, height: 345, legendSettings: { position: 'Top' }, dataLabelSettings: { position: 'Middle', visible: 'true' } }];
-    const chart6 = [{ type: 'Column', range: 'Dashboard!A21:A24 C21:C24', title: 'INTEREST YIELD BY CARD TYPE', theme: 'Tailwind3', height: 307, left: 1225, top: 818, width: 570, dataLabelSettings: { position: 'Middle', visible: 'true' } }];
+    const chart6 = [{ type: 'Column', range: 'Dashboard!A21:A24 C21:C24', title: 'INTEREST YIELD BY CARD TYPE', theme: 'Tailwind3', height: 315, left: 1225, top: 825, width: 570, dataLabelSettings: { position: 'Middle', visible: 'true' } }];
     const chart7 = [{ type: 'Bar', range: 'Dashboard!G27:H37', title: 'TOP 10 BRANCHES BY SPEND', theme: 'Tailwind3', left: 1225, top: 60, width: 570, height: 345, isSeriesInRows: false, dataLabelSettings: { position: 'Outer', visible: 'true' } }];
 
     const varianceSheetCalculation = (spreadsheet) => {
