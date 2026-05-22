@@ -2,7 +2,6 @@ import * as React from 'react';
 import { createRoot } from 'react-dom/client';
 import {  CellDirective, CellsDirective, ColumnDirective, ColumnsDirective, getColumnHeaderText, getSheet, RangeDirective, RangesDirective, RowDirective, RowsDirective, setCell, setColumn, SheetDirective, SheetsDirective, sheetTabs, SpreadsheetComponent, wrap,
 } from '@syncfusion/ej2-react-spreadsheet';
-import { DropDownListComponent } from '@syncfusion/ej2-react-dropdowns';
 import './App.css';
 import { budgetData, actualDataSource, actualData } from './data-util';
 import {
