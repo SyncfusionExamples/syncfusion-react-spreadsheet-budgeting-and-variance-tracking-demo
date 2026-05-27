@@ -1,80 +1,73 @@
-# Syncfusion React Spreadsheet – Spreadsheet Budgeting and variance Tracking Demo 
+# React + TypeScript + Vite
 
-This repository contains a complete showcase sample demonstrating how to build a **Credit Card Portfolio Management and Analytics workflow** using the Syncfusion React Spreadsheet component.The sample illustrates how financial and risk teams can analyze card spend, revolving balances, delinquency metrics, and portfolio performance using an interactive, spreadsheet‑driven interface.
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-## 📁 Project Structure
+Currently, two official plugins are available:
 
-```
-├── src/
-│   ├── components/
-│   ├── styles/
-│   └── App.jsx
-|    └── App.css
-|   └── data-util.jsx
-├── public/
-└── README.md
-```
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
 
-## ✨ Features
+## React Compiler
 
-- Provides an interactive multi-sheet spreadsheet interface to manage and analyze credit card portfolio data across Region, Branch, and Card Type segments.
-- Enables end-to-end financial tracking by integrating Budget (planned), Actuals (execution) and Variance (comparison) within a unified spreadsheet workflow.
-- Implements advanced spreadsheet formulas such as SUMIFS, COUNTIFS, IF logic, and weighted calculations to derive key metrics.
-- Supports automated behavioral analysis by calculating customer metrics like Payment Status, Days Past Due, Delinquency Flag and Revolving Balance using rule-based logic.
-- Provides risk classification and scoring through weighted formulas, enabling categorization into Low, Medium and High risk segments for better decision-making.
-- Applies conditional formatting, data bars and icon sets to visually highlight important column metrics.
-- Delivers an interactive dashboard layer with charts and KPIs to visualize.
-- Enables real-time recalculation and dynamic updates, allowing users to interactively modify data and instantly view updated insights across all sheets.
-- Demonstrates how Syncfusion React Spreadsheet can be used as a lightweight financial analytics interface for credit card portfolio management, combining planning, execution, analysis, and visualization in a single experience.
+The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
 
-## 🧩 Technologies Used
+## Expanding the ESLint configuration
 
-- React
-- Syncfusion React Spreadsheet
+If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
 
-## 🚀 Getting Started
+```js
+export default defineConfig([
+  globalIgnores(['dist']),
+  {
+    files: ['**/*.{ts,tsx}'],
+    extends: [
+      // Other configs...
 
-### 1. Clone the Repository
-```bash
-git clone https://github.com/SyncfusionExamples/syncfusion-react-spreadsheet-budgeting-and-variance-tracking-demo
-```
+      // Remove tseslint.configs.recommended and replace with this
+      tseslint.configs.recommendedTypeChecked,
+      // Alternatively, use this for stricter rules
+      tseslint.configs.strictTypeChecked,
+      // Optionally, add this for stylistic rules
+      tseslint.configs.stylisticTypeChecked,
 
-### 2. Install Dependencies
-```bash
-npm install
-```
-
-### 3. Run the Application
-```bash
-npm run dev
+      // Other configs...
+    ],
+    languageOptions: {
+      parserOptions: {
+        project: ['./tsconfig.node.json', './tsconfig.app.json'],
+        tsconfigRootDir: import.meta.dirname,
+      },
+      // other options...
+    },
+  },
+])
 ```
 
-### 4. Open in Browser
+You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
 
-Your application will automatically run on a local development server and can be accessed through a localhost URL in your browser.
+```js
+// eslint.config.js
+import reactX from 'eslint-plugin-react-x'
+import reactDom from 'eslint-plugin-react-dom'
 
-## 🔗 Resources
-
-- https://help.syncfusion.com/document-processing/excel/spreadsheet/react/getting-started
-- https://help.syncfusion.com/document-processing/excel/spreadsheet/react/formatting
-- https://help.syncfusion.com/document-processing/excel/spreadsheet/react/formulas
-
-## ✅ Benefits
-
-- Simplifies credit card portfolio analysis using a spreadsheet-first approach.
-- Enables risk, finance, and business teams to evaluate revolving and delinquency behavior.
-- Supports scenario-based forecasting without complex backend calculations.
-- Reduces manual reporting through automated formulas and conditional formatting.
-- Serves as a customizable template for credit card analytics, planning, and variance tracking applications.
-
-## 📣 Try It Out
-
-Clone the repository, run the sample, and explore how Syncfusion React Spreadsheet can be used to build a **Credit Card Portfolio Management and Analytics system** for real‑world financial workflows.
-
-## 📄 License and Copyright
-
-> This is a commercial product and requires a paid license for possession or use. Syncfusion® licensed software, including this control, is subject to the terms and conditions of Syncfusion® EULA: https://www.syncfusion.com/eula/es/. To acquire a license for 140+ JavaScript UI controls, visit https://www.syncfusion.com/javascript-ui-controls or start a free 30‑day trial: https://www.syncfusion.com/account/manage-trials/start-trials.
-
-> A free community license is also available for companies and individuals whose organizations have less than $1 million USD in annual gross revenue and five or fewer developers: https://www.syncfusion.com/products/communitylicense.
-
-See the LICENSE FILE at: https://github.com/syncfusion/ej2-javascript-ui-controls/blob/master/license for more details.
+export default defineConfig([
+  globalIgnores(['dist']),
+  {
+    files: ['**/*.{ts,tsx}'],
+    extends: [
+      // Other configs...
+      // Enable lint rules for React
+      reactX.configs['recommended-typescript'],
+      // Enable lint rules for React DOM
+      reactDom.configs.recommended,
+    ],
+    languageOptions: {
+      parserOptions: {
+        project: ['./tsconfig.node.json', './tsconfig.app.json'],
+        tsconfigRootDir: import.meta.dirname,
+      },
+      // other options...
+    },
+  },
+])
+```
