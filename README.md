@@ -1,6 +1,6 @@
 # Syncfusion React Spreadsheet – Spreadsheet Budgeting and variance Tracking Demo 
 
-This repository contains a complete showcase sample demonstrating how to build a **Credit Card Portfolio Management and Analytics workflow** using the Syncfusion React Spreadsheet component.The sample illustrates how financial and risk teams can analyze card spend, revolving balances, delinquency metrics, and portfolio performance using an interactive, spreadsheet‑driven interface.
+This repository contains a complete showcase sample demonstrating how to build a **Credit Card Portfolio Management and Analytics workflow** using the [React Spreadsheet](https://www.syncfusion.com/spreadsheet-editor-sdk/react-spreadsheet-editor) component.The sample illustrates how financial and risk teams can analyze card spend, revolving balances, delinquency metrics, and portfolio performance using an interactive, spreadsheet‑driven interface.
 
 ## 📁 Project Structure
 
@@ -25,12 +25,12 @@ This repository contains a complete showcase sample demonstrating how to build a
 - Applies conditional formatting, data bars and icon sets to visually highlight important column metrics.
 - Delivers an interactive dashboard layer with charts and KPIs to visualize.
 - Enables real-time recalculation and dynamic updates, allowing users to interactively modify data and instantly view updated insights across all sheets.
-- Demonstrates how Syncfusion React Spreadsheet can be used as a lightweight financial analytics interface for credit card portfolio management, combining planning, execution, analysis, and visualization in a single experience.
+- Demonstrates how React Spreadsheet can be used as a lightweight financial analytics interface for credit card portfolio management, combining planning, execution, analysis, and visualization in a single experience.
 
 ## 🧩 Technologies Used
 
 - React
-- Syncfusion React Spreadsheet
+- React Spreadsheet
 
 ## 🚀 Getting Started
 
@@ -69,7 +69,7 @@ Your application will automatically run on a local development server and can be
 
 ## 📣 Try It Out
 
-Clone the repository, run the sample, and explore how Syncfusion React Spreadsheet can be used to build a **Credit Card Portfolio Management and Analytics system** for real‑world financial workflows.
+Clone the repository, run the sample, and explore how [React Spreadsheet](https://www.syncfusion.com/spreadsheet-editor-sdk/react-spreadsheet-editor) can be used to build a **Credit Card Portfolio Management and Analytics system** for real‑world financial workflows.
 
 ## 📄 License and Copyright
 
